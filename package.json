@@ -1,0 +1,22 @@
+{
+  "name": "easy-notes",
+  "version": "0.0.1",
+  "description": "note making app built on the MEAN stack",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mariohsieh/easy-notes"
+  },
+  "author": "Mario Hsieh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mariohsieh/easy-notes/issues"
+  },
+  "homepage": "https://github.com/mariohsieh/easy-notes",
+  "dependencies": {
+	"express": "~3.x"
+  }
+}
