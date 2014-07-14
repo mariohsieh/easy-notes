@@ -17,8 +17,8 @@ app.configure(function() {
 
 //// routes **************************************
 app.get('/', function(req,res) {
-	//res.sendfile('./public/index.html');
-	res.send('holla');
+	res.sendfile('./public/index.html');
+	//res.send('holla');
 });
 
 

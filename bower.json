@@ -1,0 +1,8 @@
+{
+	"name" : "easy notes app",
+	"version" : "0.0.1",
+	"dependencies" : {
+		"font-awesome" : "latest",
+		"angular" : "latest"
+	}
+}
