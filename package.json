@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/mariohsieh/easy-notes",
   "dependencies": {
-	"express": "~3.x"
+    "express": "~3.x",
+    "mongoose": "~3.8.12",
+    "mongodb": "~1.4.7"
   }
 }

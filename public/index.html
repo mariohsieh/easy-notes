@@ -10,8 +10,22 @@
 </head>
 <body>
 	<h1>holla!</h1>
+
+	<form action="/api/notes" method="post">
+		<input name="title" type="text" />
+		<br />
+		<textarea name="content"></textarea>
+		<br />
+		<button id="submitBtn">submit</button>
+	</form>
 	
 	<!-- load javascript files -->
 	<script src="libs/angular/angular.min.js"></script>
+	<script>
+		document.getElementById('submitBtn').onclick = function(evt) {
+			//evt.preventDefault();
+			//window.location.replace('localhost:9090');
+		}
+	</script>
 </body>
 </html>
