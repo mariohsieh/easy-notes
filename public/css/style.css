@@ -1,0 +1,15 @@
+html, body {
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 100%; }
+
+h1 {
+  font-size: 2.0em; }
+
+header {
+  background-color: #424242;
+  height: 40px;
+  color: #FFF;
+  text-align: center; }
+
+.center {
+  margin: 0 auto; }
