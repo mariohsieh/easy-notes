@@ -13,12 +13,18 @@
 </head>
 <body ng-controller="mainCtrl">
 	<header>
-		<h1>easy notes</h1>
+		<nav class="center"><!--
+			--><h1>easy notes</h1><!--
+			--><h2>post a note!</h2><!--
+			--><ul><!--
+				--><li ng-click="displayPage = 'note';"><span data-label="create"><i class="fa fa-plus-square fa-3x fa-fw"></i></span></li><!--
+				--><li ng-click="displayPage = 'grid';"><span data-label="grid"><i class="fa fa-th fa-3x fa-fw"></i></span></li><!--
+				--><li ng-click="displayPage = 'list'"><span data-label="list"><i class="fa fa-list fa-3x fa-fw"></i></span></li>
+			</ul>
+		</nav>
 	</header>
 	<main>	
-		<i class="fa fa-plus-square fa-3x fa-fw" ng-click="displayPage = 'note';"></i>
-		<i class="fa fa-th fa-3x fa-fw" ng-click="displayPage = 'grid';"></i>
-		<i class="fa fa-list fa-3x fa-fw" ng-click="displayPage = 'list'"></i>
+
 		<section ng-show="displayPage=='note'">
 			<input type="text" ng-model="newNote.title" />
 			<br />
@@ -26,16 +32,20 @@
 			<br />
 			<button id="submitBtn" ng-click="createNote(newNote)">submit</button>
 		</section>
-		<section class="notesWrap" ng-show="displayPage=='grid'">
+		<section class="displayGrid" ng-show="displayPage=='grid'">
 			<ul>
-				<li ng-repeat="beta in allNotes">
-					<p>{{beta.title}}</p>
-					<p>{{beta.content}}</p>
+				<li ng-repeat="note in allNotes">
+					<p>{{note.title}}</p>
+					<p>{{note.content}}</p>
 				</li>
 			</ul>
 		</section>
-		<section ng-show="displayPage=='list'">
-			<h2>list display</h2>
+		<section class="displayList" ng-show="displayPage=='list'">
+			<ul>
+				<li ng-repeat="note in allNotes">
+					<p>{{note.title}}</p>
+				</li>
+			</ul>
 		</section>
 	</main>
 	

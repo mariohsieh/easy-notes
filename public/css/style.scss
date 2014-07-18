@@ -3,7 +3,7 @@
 // variables
 $grey: #424242;
 
-// html tags
+// general html tags
 html, body {
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: 100%;
@@ -13,19 +13,107 @@ h1 {
 	font-size: 2.0em;
 }
 
-header {
-	background-color: $grey;
-	height: 40px;
-	color: #FFF;
-	text-align: center;
+h2 {
+	font-size: 1.5em;
 }
 
-// class styles
+
+//// class styles ////
 .center {
 	margin: 0 auto;
 }
 
-.notesWrap li {
+.displayGrid li {
 	display: inline-block;
 	padding: 10px;
+}
+
+.displayList li {
+	display: block;
+}
+
+//// top nav styles ////
+header {
+	background-color: $grey;
+	height: 50px;
+	width: 100%;
+	color: #FFF;
+	nav {
+		height: inherit;
+		width: inherit;
+		h1, h2 {
+			display: none;
+		}
+		ul {
+			height: inherit;
+			display: block;
+			text-align: center;
+			padding-top: 2px;
+			li {
+				height: inherit;
+				display: inline-block;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+//////////////////////////////
+//  responsive break points //
+//////////////////////////////
+@media all and (min-width: 401px) {
+}
+
+@media all and (min-width: 801px) {
+	header {
+		nav {
+			width: 80%;
+			h1,ul {
+				height: inherit;
+				width: 50%;
+				display: inline-block;
+				vertical-align: top;
+				line-height: 50px;
+			}
+			ul {
+				text-align: right;
+			}
+		}
+	}
+}
+
+@media all and (min-width: 1201px) {
+	header {
+		nav {
+			width: 90%;
+			h1, h2, ul {
+				width: 33%;
+			}
+			h2 {
+				display: inline-block;
+				height: inherit;
+				text-align: center;
+				vertical-align: top;
+				line-height: 50px;
+				font-style: italic;
+			}
+		}
+	}
+}
+
+@media all and (min-width: 1601px) {
+	header {
+		nav {
+			ul {
+				li {
+					span:before {
+						content: attr(data-label);
+						display: inherit;
+						vertical-align: top;
+						line-height: 50px;
+					}
+				}
+			}
+		}
+	}
 }

@@ -5,15 +5,65 @@ html, body {
 h1 {
   font-size: 2.0em; }
 
-header {
-  background-color: #424242;
-  height: 40px;
-  color: #FFF;
-  text-align: center; }
+h2 {
+  font-size: 1.5em; }
 
 .center {
   margin: 0 auto; }
 
-.notesWrap li {
+.displayGrid li {
   display: inline-block;
   padding: 10px; }
+
+.displayList li {
+  display: block; }
+
+header {
+  background-color: #424242;
+  height: 50px;
+  width: 100%;
+  color: #FFF; }
+  header nav {
+    height: inherit;
+    width: inherit; }
+    header nav h1, header nav h2 {
+      display: none; }
+    header nav ul {
+      height: inherit;
+      display: block;
+      text-align: center;
+      padding-top: 2px; }
+      header nav ul li {
+        height: inherit;
+        display: inline-block;
+        cursor: pointer; }
+
+@media all and (min-width: 801px) {
+  header nav {
+    width: 80%; }
+    header nav h1, header nav ul {
+      height: inherit;
+      width: 50%;
+      display: inline-block;
+      vertical-align: top;
+      line-height: 50px; }
+    header nav ul {
+      text-align: right; } }
+@media all and (min-width: 1201px) {
+  header nav {
+    width: 90%; }
+    header nav h1, header nav h2, header nav ul {
+      width: 33%; }
+    header nav h2 {
+      display: inline-block;
+      height: inherit;
+      text-align: center;
+      vertical-align: top;
+      line-height: 50px;
+      font-style: italic; } }
+@media all and (min-width: 1601px) {
+  header nav ul li span:before {
+    content: attr(data-label);
+    display: inherit;
+    vertical-align: top;
+    line-height: 50px; } }
