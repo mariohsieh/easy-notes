@@ -18,10 +18,10 @@ angular.module("easynotesApp", [])
 
 		// declare variables
 		$scope.note = {};
+		$scope.newNote = false;
 		
 		// get all notes from database
-		$scope.getAllNotes = function() {
-
+		function getAllNotes() {
 			Notes.get()
 				.success(function(data) {
 					console.log(data);
@@ -34,7 +34,7 @@ angular.module("easynotesApp", [])
 		
 		// create a new note
 		$scope.createNote = function(data) {
-			console.log(data.content);
+			//console.log(data.content);
 			
 			Notes.create(data)
 				.success(function() {
@@ -45,5 +45,5 @@ angular.module("easynotesApp", [])
 				});
 		}
 		
-		
+		getAllNotes();
 	});
