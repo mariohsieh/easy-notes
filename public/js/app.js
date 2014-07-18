@@ -1,57 +1,26 @@
-angular.module("easynotesApp", [])
+angular.module("easyNotesApp", [])
 
+	.controller("mainCtrl", function($scope) {
 
-	.factory("Notes", function($http) {
-		return {
-			
-			get: function() {
-				return $http.get('/api/notes');
-			},
-			
-			create: function(noteData) {
-				return $http.post('/api/notes', noteData);
-			}
-		}
-	})
-
-	.controller("mainCtrl", function($scope, Notes) {
-
-		// declare variables
-		var socket = io();
-		socket.on('initial', function(data) {
-			console.log(data);
-		});
+		//// socket io ////
+		var socket = io(); 		// initialize socket.io	
+		socket.on('getAllNotes', function(data) {
+			$scope.allNotes = data;
+			console.log($scope.allNotes);
+		});			
 		
-		$scope.note = {};
-		$scope.newNote = false;
-		
-		// get all notes from database
-		function getAllNotes() {
-			Notes.get()
-				.success(function(data) {
-					console.log(data);
-					$scope.data = data;
-				})
-				.error(function(data) {
-					console.log("error, could not retrieve data");
-				});
+		//// helper functions ////
+		function initial() {
+			$scope.displayPage = 'note';
 		}
 		
+		//// $scope functions ////
 		// create a new note
 		$scope.createNote = function(data) {
-			//console.log(data.content);
-			
 			socket.emit('createNote', data);
-/*			
-			Notes.create(data)
-				.success(function() {
-					console.log('submission ok!');
-				})
-				.error(function() {
-					console.log('error, could not submit');
-				});
-*/ 
+			$scope.newNote = {};
 		}
-		
-		//getAllNotes();
+
+		initial();
+	
 	});

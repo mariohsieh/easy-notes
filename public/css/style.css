@@ -13,3 +13,7 @@ header {
 
 .center {
   margin: 0 auto; }
+
+.notesWrap li {
+  display: inline-block;
+  padding: 10px; }
