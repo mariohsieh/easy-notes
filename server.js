@@ -18,45 +18,7 @@ app.configure(function() {
 	app.use(express.methodOverride());
 });
 
-// model //
-// move into its own file later
-var noteSchema = new mongoose.Schema({
-	title: 		String,
-	content: 	String
-});
 
-// create Note model from schema
-var Note = mongoose.model("Note", noteSchema);
-
-// create a new note
-app.post('/api/notes', function(req,res) {
-	
-	//console.log(req.body);
-	
-	var note = new Note({
-		title: req.body.title,
-		content: req.body.content
-	});	
-
-	console.log(note);
-	note.save(function(err,doc) {
-		if (err || !doc) throw err;
-		console.log('submission success!');
-		res.redirect('http://localhost:9090');
-	});
-	
-
-});
-
-// retrieve all notes
-app.get('/api/notes', function(req,res) {
-	
-	Note.find(function(err,doc) {
-		if (err) throw err;
-		//console.log(doc);
-		res.json(doc);
-	});
-});
 
 
 //// routes **************************************
@@ -78,9 +40,65 @@ mongoose.connect(url, function(err) {
 	});
 });
 
-
-// socket.io events //
-io.on('connection', function() {
-	console.log('a user connected');
+// db interaction ***********************************
+// model // (move into its own file later)
+var noteSchema = new mongoose.Schema({
+	title: 		String,
+	content: 	String
 });
 
+// create Note model from schema
+var Note = mongoose.model("Note", noteSchema);
+
+// get all notes from db
+/*
+function getAllNotes() {
+	Note.find(function(err,doc) {
+		if (err) throw err;
+		data = doc;
+	});
+	console.log(data);
+}*/
+
+
+
+// socket.io events //
+io.on('connection', function(socket) {
+
+	function getAllNotes() {
+		Note.find(function(err,doc) {
+			if (err) throw err;
+			socket.emit('initial', doc);
+		});
+	}
+	
+	// on connect
+	console.log('a user connected');
+	getAllNotes();
+	
+	
+	// on note creation
+	socket.on('createNote', function(data) {
+		//console.log(data);
+		
+		// create instane of note model
+		var note = new Note({
+			title: data.title,
+			content: data.content
+		});	
+
+		console.log(note);
+		
+		// save into mongodb
+		note.save(function(err,doc) {
+			if (err || !doc) throw err;
+			console.log('submission success!');
+		});		
+	});	
+	
+});
+
+
+	
+	
+	

@@ -17,6 +17,11 @@ angular.module("easynotesApp", [])
 	.controller("mainCtrl", function($scope, Notes) {
 
 		// declare variables
+		var socket = io();
+		socket.on('initial', function(data) {
+			console.log(data);
+		});
+		
 		$scope.note = {};
 		$scope.newNote = false;
 		
@@ -36,6 +41,8 @@ angular.module("easynotesApp", [])
 		$scope.createNote = function(data) {
 			//console.log(data.content);
 			
+			socket.emit('createNote', data);
+/*			
 			Notes.create(data)
 				.success(function() {
 					console.log('submission ok!');
@@ -43,7 +50,8 @@ angular.module("easynotesApp", [])
 				.error(function() {
 					console.log('error, could not submit');
 				});
+*/ 
 		}
 		
-		getAllNotes();
+		//getAllNotes();
 	});
