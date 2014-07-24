@@ -2,7 +2,7 @@
 
 // variables
 $grey: #424242;
-$noteHW: 250px;
+$noteHW: 230px;
 
 // general html tags
 html, body {
@@ -71,17 +71,25 @@ main {
 			padding: 5px 2.5%;
 			font: inherit;
 			border: none;
+			background-color: inherit;
 		}
 		input {
 			text-align: center;
+			height: 18px;
+			font-weight: bold;
 		}
 		textarea {
 			margin-top: 10px;
+			height: 182px;
 			resize: none;
 		}
 	}
-	section article {
+	.createNote {
+		text-align: center;
+		article {
 			display: inline-block;
+			//text-align: right;
+		}
 	}
 }
 

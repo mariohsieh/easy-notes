@@ -24,7 +24,7 @@
 		</nav>
 	</header>
 	<main>
-		<section ng-show="displayPage=='note'"><!--
+		<section class="createNote" ng-show="displayPage=='note'"><!--
 			--><article>
 				<!-- note bg color options -->
 			</article><!--
@@ -42,8 +42,10 @@
 		<section class="displayGrid" ng-show="displayPage=='grid'">
 			<ul>
 				<li ng-repeat="note in allNotes">
-					<p>{{note.title}}</p>
-					<p>{{note.content}}</p>
+					<div class="noteBG">
+						<p>{{note.title}}</p>
+						<p>{{note.content}}</p>
+					</div>
 				</li>
 			</ul>
 		</section>
