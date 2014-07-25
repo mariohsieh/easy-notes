@@ -31,34 +31,47 @@ header {
         display: inline-block;
         cursor: pointer; }
 
-main .displayGrid li {
+main .grid {
   display: inline-block;
-  padding: 10px; }
-main .displayList li {
+  padding: 5px; }
+main .list {
   display: block; }
-main .noteBG {
-  width: 230px;
-  height: 230px;
+main ul {
+  margin: 0 auto;
+  text-align: center; }
+main .noteBg {
   background-color: yellow;
-  padding: 10px; }
-  main .noteBG input, main .noteBG textarea {
+  padding: 10px;
+  margin: 0 auto; }
+  main .noteBg input, main .noteBg textarea {
     width: 95%;
     padding: 5px 2.5%;
     font: inherit;
     border: none;
     background-color: inherit; }
-  main .noteBG input {
+  main .noteBg input {
     text-align: center;
     height: 18px;
     font-weight: bold; }
-  main .noteBG textarea {
+  main .noteBg textarea {
     margin-top: 10px;
     height: 182px;
     resize: none; }
-main .createNote {
+  main .noteBg p {
+    text-align: left; }
+main .noteBgGrid {
+  width: 230px;
+  height: 230px; }
+main .noteBgList {
+  width: 500px;
+  height: 50px;
+  margin-bottom: 10px; }
+main .noteCreate {
   text-align: center; }
-  main .createNote article {
+  main .noteCreate article {
     display: inline-block; }
+main section:first-of-type article {
+  text-align: center; }
 
 @media all and (min-width: 801px) {
   header nav {

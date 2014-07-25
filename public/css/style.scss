@@ -53,19 +53,21 @@ header {
 
 //// main styles ////
 main {
-	.displayGrid li {
+	.grid {
 		display: inline-block;
-		padding: 10px;
+		padding: 5px;
 	}
-	.displayList li {
+	.list {
 		display: block;
 	}
-	.noteBG {
-		width: $noteHW;
-		height: $noteHW;
+	ul {
+		margin: 0 auto;
+		text-align: center;
+	}
+	.noteBg {
 		background-color: yellow;
 		padding: 10px;
-
+		margin: 0 auto;
 		input, textarea {
 			width: 95%;
 			padding: 5px 2.5%;
@@ -83,13 +85,28 @@ main {
 			height: 182px;
 			resize: none;
 		}
+		p {
+			text-align: left;
+		}
 	}
-	.createNote {
+	.noteBgGrid {
+		width: $noteHW;
+		height: $noteHW;		
+	}
+	.noteBgList {
+		width: 500px;
+		height: 50px;
+		margin-bottom: 10px;
+	}
+	.noteCreate {
 		text-align: center;
 		article {
 			display: inline-block;
 			//text-align: right;
 		}
+	}
+	section:first-of-type article {
+		text-align: center;
 	}
 }
 

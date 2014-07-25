@@ -11,7 +11,7 @@ angular.module("easyNotesApp", [])
 		
 		//// helper functions ////
 		function initial() {
-			$scope.displayPage = 'note';
+			$scope.newNote = true;
 		}
 		
 		//// $scope functions ////
