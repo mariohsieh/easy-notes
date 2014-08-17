@@ -1,21 +1,26 @@
 //// modules *************************************
-var express = require('express'),
-	app = express(),
-	mongoose = require('mongoose'),
-	http = require('http').Server(app),
-	io  = require('socket.io')(http);
+var express 				= require('express'),
+		app 						= express(),
+		morgan 					= require('morgan'),
+		bodyParser 			= require('body-parser'),
+		methodOverride 	= require('method-override'),
+		mongoose 				= require('mongoose'),
+		http 						= require('http').Server(app),
+		io  						= require('socket.io')(http);
 
 
 //// configuration *******************************
-var port = process.env.PORT || 9090,			// set port
-	url = 'mongodb://localhost/easynotes';		// for localhost
+var port = process.env.PORT || 9090,					// set port
+		url = 'mongodb://localhost/easynotes';		// for localhost
 
-app.configure(function() {
+//var env = process.env.NODE_ENV || 'development';
+//if ('development' == env) {
 	app.use(express.static(__dirname + '/public'));
-	app.use(express.logger('dev'));
-	app.use(express.bodyParser());
-	app.use(express.methodOverride());
-});
+	app.use(morgan('dev'));
+	app.use(bodyParser.urlencoded({ extended: true }));
+	app.use(bodyParser.json());
+	app.use(methodOverride());
+//}
 
 
 //// db interaction ******************************
@@ -30,10 +35,16 @@ var Note = mongoose.model("Note", noteSchema);
 
 
 //// routes **************************************
+/*
 app.get('/', function(req,res) {
 	res.sendfile('./public/index.html');
 	//res.send('holla');
 });
+*/
+app.route('/')
+	.get(function(req,res,next) {
+		res.sendfile('./public/index.html');
+	});
 
 
 //// socket.io ***********************************

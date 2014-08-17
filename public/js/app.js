@@ -1,6 +1,6 @@
 angular.module("easyNotesApp", [])
 
-	.controller("mainCtrl", function($scope) {
+	.controller("mainCtrl", ['$scope', function($scope) {
 
 		//// socket io ////
 		var socket = io(); 		// initialize socket.io	
@@ -23,4 +23,4 @@ angular.module("easyNotesApp", [])
 
 		initial();
 	
-	});
+	}]);
