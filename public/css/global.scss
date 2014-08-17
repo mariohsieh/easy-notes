@@ -1,0 +1,27 @@
+// a list of global class definitions
+
+.center {
+	margin: 0 auto;
+}
+
+.textCenter {
+	text-align: center;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.inlineBlock {
+	display: inline-block;
+}
+
+.overlay {
+	position: fixed;
+	display: block;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,.85);
+}

@@ -1,5 +1,8 @@
 //// stylesheet for easy notes app ////
 
+// import global css styling
+@import "global";
+
 // variables
 $grey: #424242;
 $noteHW: 230px;
@@ -20,9 +23,7 @@ h2 {
 
 
 //// class styles ////
-.center {
-	margin: 0 auto;
-}
+
 
 
 //// top nav styles ////
