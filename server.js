@@ -21,6 +21,7 @@ app.use(methodOverride());
 //// db interaction ******************************
 // schema definition
 var noteSchema = new mongoose.Schema({
+		_id:		String,
 	title: 		String,
 	content: 	String
 });
@@ -48,6 +49,7 @@ app.route('/api/notes')
 		console.log(req.body);
 		var reqBody = req.body;
 		var noteObj = {
+			_id: 			reqBody.date,
 			title: 		reqBody.title,
 			content: 	reqBody.content
 		}

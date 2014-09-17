@@ -39,11 +39,30 @@ angular.module("easyNotesApp", [
 					console.log("Error in retrieving notes");
 				});			
 		}
-				
+		
+		// get the current date & time
+		function getDate() {
+			var today = new Date();
+			console.log(today.getFullYear());
+			var mm = addZero(today.getMonth()+1);
+			
+			var dd = addZero(today.getDate());
+			 
+
+			var hh = addZero(today.getHours());
+			var min = addZero(today.getMinutes());	
+			var ss = addZero(today.getSeconds());	
+
+			var todayDate = today.getFullYear() + "-" + mm + "-" + dd + "-" + hh + min + ss;
+			
+			return todayDate;
+		}				
+		
 		//// $scope functions ////
 		// create a new note
 		$scope.addNote = function(data) {
-			//if (data != null) {
+				$scope.newNote.date = getDate();
+				console.log($scope.newNote);
 				note.addNote($scope.newNote)
 					.success(function(data) {
 						console.log("new note added!", data);
@@ -51,11 +70,21 @@ angular.module("easyNotesApp", [
 					.error(function() {
 						console.log("Error in new note submission");
 					});
-			//}
+
 		}
 
 		initial();
 	
+		function addZero(num) {
+			//num = num.toString();
+			console.log(num);
+			if (num < 10)
+				return "0" + num;
+			else
+				return num;
+		}
+
+
 	}]);
 
 
