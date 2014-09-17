@@ -64,7 +64,7 @@ main {
 			height: 182px;
 			resize: none;
 		}
-		p {
+		p:last-of-type {
 			text-align: left;
 		}
 	}
@@ -82,7 +82,7 @@ main {
 	
 	.newNoteArea {
 		article div, article button {
-			position: relative;
+			position: relative; //has to be relative to display properly
 			z-index: 100;
 		}
 		

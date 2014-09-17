@@ -3,6 +3,6 @@
 		<input class="textCenter" type="text" placeholder="title" ng-model="newNote.title" />		
 		<textarea placeholder="write something..." ng-model="newNote.content"></textarea>
 	</div>
-	<button class="btn block center pointer" ng-click="addNote(newNote)">submit</button>
+	<button class="btn block center" ng-class="{pointer: newNote.title || newNote.content}" ng-disabled="!newNote.title && !newNote.content" ng-click="addNote(newNote)">submit</button>
 	<span class="overlay" ng-click="newNoteToggle = false"></span>
 </article>

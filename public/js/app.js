@@ -43,14 +43,15 @@ angular.module("easyNotesApp", [
 		//// $scope functions ////
 		// create a new note
 		$scope.addNote = function(data) {
-			
-			note.addNote($scope.newNote)
-				.success(function(data) {
-					console.log("new note added!", data);
-				})
-				.error(function() {
-					console.log("Error in new note submission");
-				});
+			//if (data != null) {
+				note.addNote($scope.newNote)
+					.success(function(data) {
+						console.log("new note added!", data);
+					})
+					.error(function() {
+						console.log("Error in new note submission");
+					});
+			//}
 		}
 
 		initial();

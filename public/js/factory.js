@@ -9,7 +9,6 @@ angular.module("factories", [])
 			}
 							
 			this.addNote = function(noteData) {
-				
 				return $http.post('/api/notes', noteData);
 			}
 /*

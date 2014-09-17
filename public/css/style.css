@@ -96,7 +96,7 @@ main .noteBg {
     margin-top: 10px;
     height: 182px;
     resize: none; }
-  main .noteBg p {
+  main .noteBg p:last-of-type {
     text-align: left; }
 main .displayNoteArea {
   padding: 0 5%; }
