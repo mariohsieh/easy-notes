@@ -18,50 +18,10 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 
 
-//// db interaction ******************************
-// schema definition
-var noteSchema = new mongoose.Schema({
-		_id:		String,
-	title: 		String,
-	content: 	String
-});
-
-// create Note model from schema
-var Note = mongoose.model("Note", noteSchema);
-
 
 //// routes **************************************
-app.route('/')
-	// initial page - delete when all notes are showing
-	.get(function(req,res,next) {
-		res.sendfile('./public/index.html');
-	});
+require('./app/routes')(app);
 
-app.route('/api/notes')
-	// get all notes
-	.get(function(req,res,next) {
-		Note.find(function(err,doc) {
-			if (err) throw err;
-			res.json(doc);
-		});
-	})
-	.post(function(req,res,next) {
-		console.log(req.body);
-		var reqBody = req.body;
-		var noteObj = {
-			_id: 			reqBody.date,
-			title: 		reqBody.title,
-			content: 	reqBody.content
-		}
-		var note = new Note(noteObj);
-		note.save(function(err,doc) {
-			if (err || !doc)
-				throw err;
-			else
-				res.json(doc);
-		});
-	});
-	
 	
 //// start server ***************************
 mongoose.connect(url, function(err) {
