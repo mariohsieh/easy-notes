@@ -35,6 +35,7 @@ header {
 	border: none;
 	height: 50px;
 	width: 50px;
+	padding: 0;
 	
 }
 
@@ -79,6 +80,16 @@ main {
 		}
 	}
 	
+	.newNoteArea {
+		article div, article button {
+			position: relative;
+			z-index: 100;
+		}
+		
+		.overlay {
+			z-index: 90;
+		}
+	}
 }
 
 

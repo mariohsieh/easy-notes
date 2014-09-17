@@ -38,13 +38,29 @@ app.route('/')
 
 app.route('/api/notes')
 	// get all notes
-	.get(function(req,res, next) {
+	.get(function(req,res,next) {
 		Note.find(function(err,doc) {
 			if (err) throw err;
 			res.json(doc);
 		});
+	})
+	.post(function(req,res,next) {
+		console.log(req.body);
+		var reqBody = req.body;
+		var noteObj = {
+			title: 		reqBody.title,
+			content: 	reqBody.content
+		}
+		var note = new Note(noteObj);
+		note.save(function(err,doc) {
+			if (err || !doc)
+				throw err;
+			else
+				res.json(doc);
+		});
 	});
-
+	
+	
 //// start server ***************************
 mongoose.connect(url, function(err) {
 	if (err) throw err;

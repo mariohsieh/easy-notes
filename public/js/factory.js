@@ -7,11 +7,12 @@ angular.module("factories", [])
 			this.getAll = function() {
 				return $http.get('/api/notes');
 			}
-/*							
+							
 			this.addNote = function(noteData) {
-				return $http.post('/api/brackets', noteData);
+				
+				return $http.post('/api/notes', noteData);
 			}
-
+/*
 			this.updateNote = function() {
 
 			}

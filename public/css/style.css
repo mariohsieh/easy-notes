@@ -75,7 +75,8 @@ header {
   border-radius: 100%;
   border: none;
   height: 50px;
-  width: 50px; }
+  width: 50px;
+  padding: 0; }
 
 main .noteBg {
   background-color: yellow;
@@ -102,3 +103,8 @@ main .displayNoteArea {
   main .displayNoteArea .grid {
     display: inline-block;
     padding: .5%; }
+main .newNoteArea article div, main .newNoteArea article button {
+  position: relative;
+  z-index: 100; }
+main .newNoteArea .overlay {
+  z-index: 90; }

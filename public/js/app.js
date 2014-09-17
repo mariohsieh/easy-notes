@@ -14,9 +14,13 @@ angular.module("easyNotesApp", [
 */ 
 
 	.controller("mainCtrl", ['$scope', 'Note', function($scope, Note) {
+		
+		// call Note factory		
+		var note = new Note;
 
 		// run on page load
 		function initial() {
+			
 			$scope.newNoteToggle = false;
 
 			getAllNotes();
@@ -25,8 +29,7 @@ angular.module("easyNotesApp", [
 		//// helper functions ////
 		// gets all notes to display
 		function getAllNotes() {
-			// call Note factory
-			var note = new Note;
+
 			note.getAll()
 				.success(function(data)  {
 					console.log(data);
@@ -40,8 +43,14 @@ angular.module("easyNotesApp", [
 		//// $scope functions ////
 		// create a new note
 		$scope.addNote = function(data) {
-			//$scope.newNote = {};
-			console.log("hi");
+			
+			note.addNote($scope.newNote)
+				.success(function(data) {
+					console.log("new note added!", data);
+				})
+				.error(function() {
+					console.log("Error in new note submission");
+				});
 		}
 
 		initial();
