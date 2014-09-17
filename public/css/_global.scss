@@ -27,12 +27,28 @@ h6 {
 	margin: 0 auto;
 }
 
+.textLeft {
+	text-align: left;
+}
+
 .textCenter {
 	text-align: center;
 }
 
 .textRight {
 	text-align: right;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.floatRight {
+	float: right;
+}
+
+.clearFix {
+	clear: both;
 }
 
 .pointer {

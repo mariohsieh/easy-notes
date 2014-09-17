@@ -1,7 +1,17 @@
 angular.module("easyNotesApp", [
-	"ui.router",
-	"noteService"
+	"factories",
+	"directives",
+	"ui.router"
 	])
+
+/*
+	.config(["$stateProvider", "$locationProvider", function($routeProvider, $locationProvider) { 
+		$stateProvider
+		 
+		 
+		$locationProvider.html5Mode(true);	// removes the # from URL address bar
+	}
+*/ 
 
 	.controller("mainCtrl", ['$scope', 'Note', function($scope, Note) {
 
@@ -20,6 +30,7 @@ angular.module("easyNotesApp", [
 			note.getAll()
 				.success(function(data)  {
 					console.log(data);
+					$scope.allNotes = data;
 				})
 				.error(function() {
 					console.log("Error in retrieving notes");
@@ -29,13 +40,13 @@ angular.module("easyNotesApp", [
 		//// $scope functions ////
 		// create a new note
 		$scope.addNote = function(data) {
-			$scope.newNote = {};
+			//$scope.newNote = {};
+			console.log("hi");
 		}
 
 		initial();
 	
 	}]);
-
 
 
 

@@ -15,7 +15,6 @@ html, body {
 }
 
 
-
 //// class styles ////
 
 
@@ -31,41 +30,23 @@ header {
 
 
 //// nav styles ////
-nav {
-	height: inherit;
-	width: inherit;
-
-	ul {
-		height: inherit;
-		display: block;
-		text-align: center;
-		padding-top: 2px;
-		li {
-			height: inherit;
-			display: inline-block;
-			cursor: pointer;
-		}
-	}
+.btn {
+	@include borderRadius(100%);
+	border: none;
+	height: 50px;
+	width: 50px;
+	
 }
 
 
 //// main content styles ////
 main {
-	.grid {
-		display: inline-block;
-		padding: 5px;
-	}
-	.list {
-		display: block;
-	}
-	ul {
-		margin: 0 auto;
-		text-align: center;
-	}
+
 	.noteBg {
 		background-color: yellow;
+		width: $noteHW;
+		height: $noteHW;
 		padding: 10px;
-		margin: 0 auto;
 		input, textarea {
 			width: 95%;
 			padding: 5px 2.5%;
@@ -74,7 +55,6 @@ main {
 			background-color: inherit;
 		}
 		input {
-			text-align: center;
 			height: 18px;
 			font-weight: bold;
 		}
@@ -87,25 +67,18 @@ main {
 			text-align: left;
 		}
 	}
-	.noteBgGrid {
-		width: $noteHW;
-		height: $noteHW;		
-	}
-	.noteBgList {
-		width: 500px;
-		height: 50px;
-		margin-bottom: 10px;
-	}
-	.noteCreate {
-		text-align: center;
-		article {
+
+	.displayNoteArea	{
+		padding: 0 5%;
+		ul {
+			//width: 90%;
+		}
+		.grid {
 			display: inline-block;
-			//text-align: right;
+			padding: .5%;
 		}
 	}
-	section:first-of-type article {
-		text-align: center;
-	}
+	
 }
 
 
