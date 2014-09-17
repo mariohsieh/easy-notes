@@ -1,18 +1,41 @@
-angular.module("easyNotesApp", [])
+angular.module("easyNotesApp", [
+	"ui.router",
+	"noteService"
+	])
 
-	.controller("mainCtrl", ['$scope', function($scope) {
+	.controller("mainCtrl", ['$scope', 'Note', function($scope, Note) {
+
+		// run on page load
+		function initial() {
+			$scope.newNoteToggle = false;
+
+			getAllNotes();
+		}
 
 		//// helper functions ////
-		function initial() {
-			$scope.newNote = true;
+		// gets all notes to display
+		function getAllNotes() {
+			// call Note factory
+			var note = new Note;
+			note.getAll()
+				.success(function(data)  {
+					console.log(data);
+				})
+				.error(function() {
+					console.log("Error in retrieving notes");
+				});			
 		}
-		
+				
 		//// $scope functions ////
 		// create a new note
-		$scope.createNote = function(data) {
+		$scope.addNote = function(data) {
 			$scope.newNote = {};
 		}
 
-		//initial();
+		initial();
 	
 	}]);
+
+
+
+

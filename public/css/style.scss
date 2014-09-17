@@ -1,6 +1,7 @@
 //// stylesheet for easy notes app ////
 
-// import global css styling
+// import css files
+@import "reset.css";
 @import "global";
 
 // variables
@@ -13,46 +14,42 @@ html, body {
 	font-size: 100%;
 }
 
-h1 {
-	font-size: 2.0em;
-}
-
-h2 {
-	font-size: 1.5em;
-}
 
 
 //// class styles ////
 
 
 
-//// top nav styles ////
+//// header styles ////
 header {
 	background-color: $grey;
 	height: 50px;
 	width: 100%;
-	color: #FFF;
-	nav {
+	color: #fff;
+	line-height: 50px;
+}
+
+
+//// nav styles ////
+nav {
+	height: inherit;
+	width: inherit;
+
+	ul {
 		height: inherit;
-		width: inherit;
-		h1, h2 {
-			display: none;
-		}
-		ul {
+		display: block;
+		text-align: center;
+		padding-top: 2px;
+		li {
 			height: inherit;
-			display: block;
-			text-align: center;
-			padding-top: 2px;
-			li {
-				height: inherit;
-				display: inline-block;
-				cursor: pointer;
-			}
+			display: inline-block;
+			cursor: pointer;
 		}
 	}
 }
 
-//// main styles ////
+
+//// main content styles ////
 main {
 	.grid {
 		display: inline-block;
@@ -112,63 +109,21 @@ main {
 }
 
 
-
 //////////////////////////////
 //  responsive break points //
 //////////////////////////////
-@media all and (min-width: 401px) {
+@media screen and (min-width: 401px) {
+
 }
 
-@media all and (min-width: 801px) {
-	header {
-		nav {
-			width: 80%;
-			h1,ul {
-				height: inherit;
-				width: 50%;
-				display: inline-block;
-				vertical-align: top;
-				line-height: 50px;
-			}
-			ul {
-				text-align: right;
-			}
-		}
-	}
+@media screen and (min-width: 801px) {
+
 }
 
-@media all and (min-width: 1201px) {
-	header {
-		nav {
-			width: 90%;
-			h1, h2, ul {
-				width: 33%;
-			}
-			h2 {
-				display: inline-block;
-				height: inherit;
-				text-align: center;
-				vertical-align: top;
-				line-height: 50px;
-				font-style: italic;
-			}
-		}
-	}
+@media screen and (min-width: 1201px) {
+
 }
 
-@media all and (min-width: 1601px) {
-	header {
-		nav {
-			ul {
-				li {
-					span:before {
-						content: attr(data-label);
-						display: inherit;
-						vertical-align: top;
-						line-height: 50px;
-					}
-				}
-			}
-		}
-	}
+@media screen and (min-width: 1601px) {
+
 }

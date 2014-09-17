@@ -1,35 +1,72 @@
-html, body {
-  font-family: 'Ubuntu Mono', monospace;
-  font-size: 100%; }
-
+@import url(reset.css);
 h1 {
-  font-size: 2.0em; }
+  font-size: 2em; }
 
 h2 {
   font-size: 1.5em; }
 
+h3 {
+  font-size: 1.17em; }
+
+h4 {
+  font-size: 1em; }
+
+h5 {
+  font-size: .83em; }
+
+h6 {
+  font-size: .75em; }
+
 .center {
   margin: 0 auto; }
+
+.textCenter {
+  text-align: center; }
+
+.textRight {
+  text-align: right; }
+
+.pointer {
+  cursor: pointer; }
+
+.block {
+  display: block; }
+
+.inlineBlock {
+  display: inline-block; }
+
+.overlay {
+  position: fixed;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85); }
+
+html, body {
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 100%; }
 
 header {
   background-color: #424242;
   height: 50px;
   width: 100%;
-  color: #FFF; }
-  header nav {
+  color: #fff;
+  line-height: 50px; }
+
+nav {
+  height: inherit;
+  width: inherit; }
+  nav ul {
     height: inherit;
-    width: inherit; }
-    header nav h1, header nav h2 {
-      display: none; }
-    header nav ul {
+    display: block;
+    text-align: center;
+    padding-top: 2px; }
+    nav ul li {
       height: inherit;
-      display: block;
-      text-align: center;
-      padding-top: 2px; }
-      header nav ul li {
-        height: inherit;
-        display: inline-block;
-        cursor: pointer; }
+      display: inline-block;
+      cursor: pointer; }
 
 main .grid {
   display: inline-block;
@@ -72,33 +109,3 @@ main .noteCreate {
     display: inline-block; }
 main section:first-of-type article {
   text-align: center; }
-
-@media all and (min-width: 801px) {
-  header nav {
-    width: 80%; }
-    header nav h1, header nav ul {
-      height: inherit;
-      width: 50%;
-      display: inline-block;
-      vertical-align: top;
-      line-height: 50px; }
-    header nav ul {
-      text-align: right; } }
-@media all and (min-width: 1201px) {
-  header nav {
-    width: 90%; }
-    header nav h1, header nav h2, header nav ul {
-      width: 33%; }
-    header nav h2 {
-      display: inline-block;
-      height: inherit;
-      text-align: center;
-      vertical-align: top;
-      line-height: 50px;
-      font-style: italic; } }
-@media all and (min-width: 1601px) {
-  header nav ul li span:before {
-    content: attr(data-label);
-    display: inherit;
-    vertical-align: top;
-    line-height: 50px; } }

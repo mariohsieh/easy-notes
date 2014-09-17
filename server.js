@@ -31,10 +31,19 @@ var Note = mongoose.model("Note", noteSchema);
 
 //// routes **************************************
 app.route('/')
+	// initial page - delete when all notes are showing
 	.get(function(req,res,next) {
 		res.sendfile('./public/index.html');
 	});
 
+app.route('/api/notes')
+	// get all notes
+	.get(function(req,res, next) {
+		Note.find(function(err,doc) {
+			if (err) throw err;
+			res.json(doc);
+		});
+	});
 
 //// start server ***************************
 mongoose.connect(url, function(err) {
@@ -43,6 +52,6 @@ mongoose.connect(url, function(err) {
 	
 	app.listen(port, function(err) {
 		if (err) throw err;
-		console.log("App running on localhost: " + port);
+		console.log("App running on port: " + port);
 	});
 });
