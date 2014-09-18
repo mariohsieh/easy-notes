@@ -1,7 +1,7 @@
 <article>
 	<div class="noteBg center">
-		<input class="textCenter" type="text" placeholder="title" ng-model="newNote.title" />		
-		<textarea placeholder="write something..." ng-model="newNote.content"></textarea>
+		<input class="textCenter" type="text" placeholder="title" maxlength="27" ng-model="newNote.title" />		
+		<textarea placeholder="write something..." ng-model="newNote.content" rows="10" maxlength="100"></textarea>
 	</div>
 	<button class="btn block center" ng-class="{pointer: newNote.title || newNote.content}" ng-disabled="!newNote.title && !newNote.content" ng-click="addNote(newNote)">submit</button>
 	<span class="overlay" ng-click="newNoteToggle = false"></span>

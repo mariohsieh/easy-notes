@@ -1,7 +1,4 @@
-// create Note model from schema
-var Note = require('./note');
-
-module.exports = function(app) {
+module.exports = function(app, Note) {
 
 // helper function to format date/time for ID use
 function getId(postDate) {
@@ -48,10 +45,10 @@ app.route('/api/notes')
 	.post(function(req,res,next) {		
 		
 		var reqBody = req.body;
-		console.log(reqBody);
+		//console.log(reqBody);
 		
 		var id = getId(reqBody.date);
-		console.log(id);
+		//console.log(id);
 
 		// set up object for submission
 		var noteObj = {

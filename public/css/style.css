@@ -83,7 +83,7 @@ main .noteBg {
   width: 230px;
   height: 230px;
   padding: 10px; }
-  main .noteBg input, main .noteBg textarea {
+  main .noteBg input, main .noteBg textarea, main .noteBg p {
     width: 95%;
     padding: 5px 2.5%;
     font: inherit;
@@ -94,15 +94,18 @@ main .noteBg {
     font-weight: bold; }
   main .noteBg textarea {
     margin-top: 10px;
-    height: 182px;
     resize: none; }
   main .noteBg p:last-of-type {
-    text-align: left; }
+    text-align: left;
+    height: 170px;
+    white-space: pre-wrap;
+    overflow: hidden; }
 main .displayNoteArea {
   padding: 0 5%; }
   main .displayNoteArea .grid {
     display: inline-block;
-    padding: .5%; }
+    padding: .5%;
+    vertical-align: top; }
 main .newNoteArea article div, main .newNoteArea article button {
   position: relative;
   z-index: 100; }

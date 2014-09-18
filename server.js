@@ -18,12 +18,15 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 
 
+//// models **************************************
+var Note = require('./app/note')(mongoose);
+
 
 //// routes **************************************
-require('./app/routes')(app);
+require('./app/routes')(app, Note);
 
 	
-//// start server ***************************
+//// start server ********************************
 mongoose.connect(url, function(err) {
 	if (err) throw err;
 	console.log('MongoDB connected');

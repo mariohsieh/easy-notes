@@ -1,4 +1,5 @@
 angular.module("easyNotesApp", [
+	"ngSanitize",
 	"factories",
 	"directives",
 	"ui.router"
@@ -9,7 +10,7 @@ angular.module("easyNotesApp", [
 		$stateProvider
 		 
 		 
-		$locationProvider.html5Mode(true);	// removes the # from URL address bar
+		//$locationProvider.html5Mode(true);	// removes the # from URL address bar
 	}
 */ 
 
@@ -17,14 +18,6 @@ angular.module("easyNotesApp", [
 		
 		// call Note factory		
 		var note = new Note;
-
-		// run on page load
-		function initial() {
-			
-			$scope.newNoteToggle = false;
-
-			getAllNotes();
-		}
 
 		//// helper functions ////
 		// gets all notes to display
@@ -39,22 +32,17 @@ angular.module("easyNotesApp", [
 					console.log("Error in retrieving notes");
 				});			
 		}
-		
-		//// $scope functions ////
-		// create a new note
-		$scope.addNote = function(data) {
-			$scope.newNote.date = new Date();
-			console.log($scope.newNote);
-			note.addNote($scope.newNote)
-				.success(function(data) {
-					console.log("new note added!", data);
-				})
-				.error(function() {
-					console.log("Error in new note submission");
-				});
-		}
 
-		initial();
+		//// scope functions ////
+		// run on page load
+		$scope.initial  = function() {
+			
+			$scope.newNoteToggle = false;
+
+			getAllNotes();
+		}
+		
+		$scope.initial();
 
 	}]);
 
