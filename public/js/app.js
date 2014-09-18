@@ -5,14 +5,29 @@ angular.module("easyNotesApp", [
 	"ui.router"
 	])
 
-/*
-	.config(["$stateProvider", "$locationProvider", function($routeProvider, $locationProvider) { 
+	.config(function($stateProvider, $urlRouterProvider, $locationProvider) { 
+
+		$urlRouterProvider.otherwise('/');
+				
 		$stateProvider
-		 
+		
+			.state('home', {
+				url: '/',
+				templateUrl: 'views/show-all.html'
+			})
+/*
+			.state(':id', {
+				url: '/:id',
+				templateUrl: 'views/new-note.html'
+			})
+*/
+			.state('new', {
+				url: '/new',
+				templateUrl: 'views/new-note.html'
+			});
 		 
 		//$locationProvider.html5Mode(true);	// removes the # from URL address bar
-	}
-*/ 
+	})
 
 	.controller("mainCtrl", ['$scope', 'Note', function($scope, Note) {
 		

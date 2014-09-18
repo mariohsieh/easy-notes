@@ -15,30 +15,10 @@
 		<h1 class="textCenter">easy notes</h1>	
 	</header>
 	<nav class="textRight">
-		<button class="btn pointer" ng-click="newNoteToggle = true">add</button>
+		<button class="btn pointer" ui-sref="new">add</button>
 		<!--<button class="btn pointer" ng-click="newNoteToggle = false">show</button>-->
 	</nav>	
-	<main>
-		<section class="displayNoteArea" ng-show="newNoteToggle == false"> <!-- display notes -->
-			<ul class="block textCenter">
-				<li class="grid" ng-repeat="note in allNotes">
-					<div class="noteBg">
-						<p>{{note.title}}</p>
-						<p ng-bind-html="note.content">{{note.content}}</p>
-					</div>
-				</li>
-			</ul>
-		</section>
-		<section class="newNoteArea" ng-show="newNoteToggle == true"> <!-- add note -->
-			<article>
-				<!-- note bg color options -->
-			</article>
-			<add-note></add-note>
-			<article>
-				<!-- font/text options -->
-			</article>
-		</section>		
-	</main>
+	<main ui-view></main>
 	
 	<!-- load javascript files -->
 	<script src="libs/angular/angular.min.js"></script>

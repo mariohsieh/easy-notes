@@ -10,7 +10,7 @@ angular.module("directives", [])
 			//link: link,
 			restrict: 'E',
 			replace: true,
-			controller: function($scope, Note) {
+			controller: function($scope, Note, $location) {
 				var note = new Note;
 				
 				$scope.addNote = function(data) {
@@ -19,6 +19,7 @@ angular.module("directives", [])
 					note.addNote($scope.newNote)
 						.success(function(data) {
 							console.log("new note added!", data);
+							$location.path("/");
 							$scope.initial();
 						})
 						.error(function() {
@@ -27,10 +28,20 @@ angular.module("directives", [])
 						
 				}			
 			},
-			templateUrl: 'views/add-note.html'
+			templateUrl: 'views/partials/add-note.html'
 		}
+	})
+	
+	.directive("editTitle", function() {
+		
+		
+		
+	})
+	
+	.directive("editContent", function() {
+		
+		
+		
 	});
-	
-	
 	
 	
