@@ -1,6 +1,6 @@
 angular.module("factories", [])
 	
-	.factory("Note", function($http) {
+	.factory("Note", ['$http', function($http) {
 		
 		return function() {
 			
@@ -11,11 +11,11 @@ angular.module("factories", [])
 			this.addNote = function(noteData) {
 				return $http.post('/api/notes', noteData);
 			}
-/*
-			this.updateNote = function() {
 
+			this.updateNote = function(noteData) {
+				return $http.put('/api/notes/:noteId', noteData);
 			}
-*/
+
 /* 
 			this.deleteNote = function() {
 
@@ -23,5 +23,5 @@ angular.module("factories", [])
 */			
 		}
 		
-	});
+	}]);
 	

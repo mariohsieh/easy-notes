@@ -31,17 +31,37 @@ angular.module("directives", [])
 			templateUrl: 'views/partials/add-note.html'
 		}
 	})
+
+	.directive("editNote", function() {
+		
+		return {
+			restrict: 'E',
+			replace: true,
+			controller: function($scope, Note, $location) {
+				var note = new Note;
+				
+				$scope.editNote = function(data) {
+					$scope.current.date = new Date();
+					console.log($scope.newNote);
+					note.editNote($scope.current)
+						.success(function(data) {
+							console.log("updated note!", data);
+							$location.path("/");
+							$scope.initial();
+						})
+						.error(function() {
+							console.log("Error in updating note.");
+						});
+				}		
+			}
+		}
+	});
 	
+/*	
 	.directive("editTitle", function() {
-		
-		
-		
 	})
 	
 	.directive("editContent", function() {
-		
-		
-		
 	});
-	
+*/	
 	

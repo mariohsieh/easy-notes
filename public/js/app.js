@@ -1,64 +1,39 @@
 angular.module("easyNotesApp", [
-	"ngSanitize",
+	"controllers",
 	"factories",
 	"directives",
 	"ui.router"
 	])
 
-	.config(function($stateProvider, $urlRouterProvider, $locationProvider) { 
+	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) { 
 
-		$urlRouterProvider.otherwise('/');
-				
 		$stateProvider
 		
 			.state('home', {
 				url: '/',
-				templateUrl: 'views/show-all.html'
+				templateUrl: 'views/show-all-page.html'
 			})
-/*
-			.state(':id', {
-				url: '/:id',
-				templateUrl: 'views/new-note.html'
-			})
-*/
+			
 			.state('new', {
 				url: '/new',
-				templateUrl: 'views/new-note.html'
+				templateUrl: 'views/add-note-page.html'
+			})
+						
+			.state('edit', {
+				url: '/:noteId',
+				controller: function($scope, $stateParams) {
+
+					//$scope.id = $stateParams.noteId;
+					console.log($scope.current);
+
+					//$scope.current = $stateParams.current;
+					//console.log($stateParams.noteTitle);
+				},
+				templateUrl: 'views/edit-note-page.html'
 			});
-		 
-		//$locationProvider.html5Mode(true);	// removes the # from URL address bar
-	})
-
-	.controller("mainCtrl", ['$scope', 'Note', function($scope, Note) {
-		
-		// call Note factory		
-		var note = new Note;
-
-		//// helper functions ////
-		// gets all notes to display
-		function getAllNotes() {
-
-			note.getAll()
-				.success(function(data)  {
-					console.log(data);
-					$scope.allNotes = data;
-				})
-				.error(function() {
-					console.log("Error in retrieving notes");
-				});			
-		}
-
-		//// scope functions ////
-		// run on page load
-		$scope.initial  = function() {
 			
-			$scope.newNoteToggle = false;
-
-			getAllNotes();
-		}
-		
-		$scope.initial();
-
+		$urlRouterProvider.otherwise('/');		 
+		//$locationProvider.html5Mode(true);	// removes the # from URL address bar
 	}]);
 
 

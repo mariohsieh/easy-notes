@@ -106,8 +106,8 @@ main .displayNoteArea {
     display: inline-block;
     padding: .5%;
     vertical-align: top; }
-main .newNoteArea article div, main .newNoteArea article button {
+main .newNoteArea article div, main .newNoteArea article button, main .editNoteArea article div, main .editNoteArea article button {
   position: relative;
   z-index: 100; }
-main .newNoteArea .overlay {
+main .newNoteArea .overlay, main .editNoteArea .overlay {
   z-index: 90; }

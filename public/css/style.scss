@@ -85,7 +85,7 @@ main {
 		}
 	}
 	
-	.newNoteArea {
+	.newNoteArea, .editNoteArea {
 		article div, article button {
 			position: relative; //has to be relative to display properly
 			z-index: 100;

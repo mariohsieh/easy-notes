@@ -18,7 +18,8 @@ function getId(postDate) {
 	var min = addZero(today.getMinutes());	
 	var ss = addZero(today.getSeconds());	
 
-	var todayDate = today.getFullYear() + "-" + mm + "-" + dd + "-" + hh + min + ss;
+	//var todayDate = today.getFullYear() + "-" + mm + "-" + dd + "-" + hh + min + ss;
+	var todayDate = today.getFullYear() + mm + dd + hh + min + ss;
 	
 	return todayDate;
 }	
@@ -63,8 +64,10 @@ app.route('/api/notes')
 		note.save(function(err,doc) {
 			if (err || !doc)
 				throw err;
-			else
+			else {
+				console.log(doc);
 				res.json(doc);
+			}
 		});
 
 	});
