@@ -22,6 +22,9 @@ angular.module("controllers", [])
 		
 		$scope.editDetails = function(note) {
 			$scope.current = note;
+			// create copy for placholder text
+			$scope.current.pTitle = note.title;
+			$scope.current.pContent = note.content;
 		}
 		
 		// run on page load

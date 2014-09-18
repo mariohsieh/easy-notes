@@ -21,14 +21,14 @@ angular.module("easyNotesApp", [
 						
 			.state('edit', {
 				url: '/:noteId',
+/*				
 				controller: function($scope, $stateParams) {
-
 					//$scope.id = $stateParams.noteId;
 					console.log($scope.current);
-
 					//$scope.current = $stateParams.current;
 					//console.log($stateParams.noteTitle);
 				},
+*/ 
 				templateUrl: 'views/edit-note-page.html'
 			});
 			

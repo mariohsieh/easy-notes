@@ -17,6 +17,7 @@ angular.module("directives", [])
 					$scope.newNote.date = new Date();
 					console.log($scope.newNote);
 					note.addNote($scope.newNote)
+/*					
 						.success(function(data) {
 							console.log("new note added!", data);
 							$location.path("/");
@@ -25,7 +26,12 @@ angular.module("directives", [])
 						.error(function() {
 							console.log("Error in new note submission");
 						});
-						
+*/						
+						.then(function(data) {
+							console.log(data);
+							$location.path("/");
+							$scope.initial();							
+						});						
 				}			
 			},
 			templateUrl: 'views/partials/add-note.html'
@@ -37,23 +43,32 @@ angular.module("directives", [])
 		return {
 			restrict: 'E',
 			replace: true,
+			scope: {
+				current: '='
+			},
 			controller: function($scope, Note, $location) {
 				var note = new Note;
 				
 				$scope.editNote = function(data) {
+					//console.log(data);
+
 					$scope.current.date = new Date();
-					console.log($scope.newNote);
-					note.editNote($scope.current)
-						.success(function(data) {
-							console.log("updated note!", data);
-							$location.path("/");
-							$scope.initial();
-						})
-						.error(function() {
-							console.log("Error in updating note.");
+				
+					// send updated info to backend
+					note.updateNote($scope.current)
+						.then(function(data) {
+							console.log(data);
+							$location.path("/");					
 						});
-				}		
-			}
+				}
+				// reset title and content if cancel out
+				$scope.cancelEdit = function() {
+					$scope.current.title = $scope.current.pTitle;
+					$scope.current.content = $scope.current.pContent;
+				}
+					
+			},
+			templateUrl: 'views/partials/edit-note.html'
 		}
 	});
 	
