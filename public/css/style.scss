@@ -8,16 +8,34 @@
 $grey: #424242;
 $noteHW: 230px;
 
-// general html tags
+//// tag selectors ////
 html, body {
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: 100%;
 }
 
 
-//// class styles ////
+//// class selectors ////
+.btn {
+	@include borderRadius(100%);
+	border: none;
+	height: 50px;
+	width: 50px;
+	padding: 0;
+	
+}
 
+.red {
+	background-color: red;
+}
 
+.green {
+	background-color: green;
+}
+
+.blue {
+	background-color: blue;
+}
 
 //// header styles ////
 header {
@@ -30,14 +48,7 @@ header {
 
 
 //// nav styles ////
-.btn {
-	@include borderRadius(100%);
-	border: none;
-	height: 50px;
-	width: 50px;
-	padding: 0;
-	
-}
+
 
 
 //// main content styles ////
@@ -86,13 +97,18 @@ main {
 	}
 	
 	.newNoteArea, .editNoteArea {
-		article div, article button {
-			position: relative; //has to be relative to display properly
-			z-index: 100;
-		}
-		
-		.overlay {
-			z-index: 90;
+		article {
+			div, button, h3, ul {
+				position: relative; //has to be relative to display properly
+				z-index: 100;
+			}
+			
+			h3 {
+				color: #fff;
+			}
+			.overlay {
+				z-index: 90;
+			}
 		}
 	}
 }

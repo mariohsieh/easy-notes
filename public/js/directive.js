@@ -69,12 +69,20 @@ angular.module("directives", [])
 			},
 			templateUrl: 'views/partials/edit-note.html'
 		}
+	})
+	
+	.directive("noteColor", function() {
+		return {
+			restrict: 'E',
+			replace: true,
+			controller: function($scope) {
+				$scope.colors = ["green", "blue", "red"];
+			},
+			templateUrl: 'views/partials/note-color.html'
+		}
 	});
 	
 /*	
-	.directive("editTitle", function() {
-	})
-	
 	.directive("editContent", function() {
 	});
 */	

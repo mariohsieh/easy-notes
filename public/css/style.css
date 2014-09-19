@@ -47,6 +47,13 @@ h6 {
 .inlineBlock {
   display: inline-block; }
 
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both; }
+
 .overlay {
   position: fixed;
   display: block;
@@ -60,13 +67,6 @@ html, body {
   font-family: 'Ubuntu Mono', monospace;
   font-size: 100%; }
 
-header {
-  background-color: #424242;
-  height: 50px;
-  width: 100%;
-  color: #fff;
-  line-height: 50px; }
-
 .btn {
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
@@ -77,6 +77,22 @@ header {
   height: 50px;
   width: 50px;
   padding: 0; }
+
+.red {
+  background-color: red; }
+
+.green {
+  background-color: green; }
+
+.blue {
+  background-color: blue; }
+
+header {
+  background-color: #424242;
+  height: 50px;
+  width: 100%;
+  color: #fff;
+  line-height: 50px; }
 
 main .noteBg {
   background-color: yellow;
@@ -106,8 +122,10 @@ main .displayNoteArea {
     display: inline-block;
     padding: .5%;
     vertical-align: top; }
-main .newNoteArea article div, main .newNoteArea article button, main .editNoteArea article div, main .editNoteArea article button {
+main .newNoteArea article div, main .newNoteArea article button, main .newNoteArea article h3, main .newNoteArea article ul, main .editNoteArea article div, main .editNoteArea article button, main .editNoteArea article h3, main .editNoteArea article ul {
   position: relative;
   z-index: 100; }
-main .newNoteArea .overlay, main .editNoteArea .overlay {
+main .newNoteArea article h3, main .editNoteArea article h3 {
+  color: #fff; }
+main .newNoteArea article .overlay, main .editNoteArea article .overlay {
   z-index: 90; }
