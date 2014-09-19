@@ -9,7 +9,8 @@ var express 				= require('express'),
 
 //// configuration *******************************
 var port = process.env.PORT || 9090,					// set port
-		url = 'mongodb://localhost/easynotes';		// for localhost
+		//url = 'mongodb://localhost/easynotes';		// for localhost
+		url = 'mongodb://<dbuser>:<dbpassword>@ds052827.mongolab.com:52827/easynotes';	// for mongolab
 
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));

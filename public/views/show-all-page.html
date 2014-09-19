@@ -1,7 +1,7 @@
 <section class="displayNoteArea"> <!-- display notes -->
 	<ul class="block textCenter">
 		<li class="grid" ng-repeat="note in allNotes">
-			<div class="noteBg" ui-sref="edit({ noteId: {{note._id}} })" ng-click="editDetails(note)">
+			<div class="noteBg" draggable="true" ui-sref="edit({ noteId: {{note._id}} })" ng-click="editDetails(note)">
 				<p>{{note.title}}</p>
 				<p>{{note.content}}</p>
 			</div>

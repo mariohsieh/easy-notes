@@ -15,7 +15,7 @@ angular.module("directives", [])
 				
 				$scope.addNote = function(data) {
 					$scope.newNote.date = new Date();
-					console.log($scope.newNote);
+					//console.log($scope.newNote);
 					note.addNote($scope.newNote)
 /*					
 						.success(function(data) {
@@ -51,7 +51,6 @@ angular.module("directives", [])
 				
 				$scope.editNote = function(data) {
 					//console.log(data);
-
 					$scope.current.date = new Date();
 				
 					// send updated info to backend
