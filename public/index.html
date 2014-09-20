@@ -14,9 +14,13 @@
 	<header>
 		<h1 class="textCenter">easy notes</h1>	
 	</header>
-	<nav class="textRight">
-		<button class="btn pointer" ui-sref="new">add</button>
-	</nav>	
+	<aside class="addArea">
+		<button class="pointer" ui-sref="new">add</button>
+	</aside>
+	<aside class="deleteArea">
+		<!-- delete note area-->
+		<button class="pointer">delete</button>
+	</aside>
 	<main ui-view></main>
 	
 	<!-- load javascript files -->

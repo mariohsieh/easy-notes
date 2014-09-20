@@ -97,6 +97,9 @@ main {
 	}
 	
 	.newNoteArea, .editNoteArea {
+		> * {
+			vertical-align: top;
+		}
 		article {
 			div, button, h3, ul {
 				position: relative; //has to be relative to display properly
