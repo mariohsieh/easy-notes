@@ -94,6 +94,20 @@ header {
   color: #fff;
   line-height: 50px; }
 
+.sidebar {
+  width: 50px;
+  position: fixed;
+  top: 50px;
+  bottom: 0; }
+
+.addArea {
+  left: 0;
+  background-color: rgba(0, 255, 0, 0.5); }
+
+.deleteArea {
+  right: 0;
+  background-color: rgba(255, 0, 0, 0.5); }
+
 main .noteBg {
   background-color: yellow;
   width: 230px;
