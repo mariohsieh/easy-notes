@@ -116,7 +116,7 @@ header {
   right: 0;
   background-color: rgba(255, 0, 0, 0.5); }
 
-.deleteArea:hover {
+.deleteArea:hover, .dragOver {
   background-color: red; }
 
 .deleteArea:hover::before {

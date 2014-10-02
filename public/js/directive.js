@@ -5,18 +5,28 @@ angular.module("directives", [])
 		
 		function link(scope, elem, attr) {
 			
-			console.log(elem[0].children);
-			
-			//var note = document.querySelector('.displayNoteArea ul li');
-			var note = elem[0].children;
-			[].forEach.call(note, function(data) {
-				data.addEventListener('dragstart', handleDragStart, false);
-			});
+			//console.log(elem);
+
 			function handleDragStart(e) {
-				console.log(this);
-				//this.style.opacity = '0.4';
+				//console.log(this);
+				this.style.opacity = '0.5';
+				//elem.css("opacity", "0.5");
 			}
-			//console.log(note);
+			
+			function handleDragEnter(e) {
+				//console.log(this);
+				this.classList.add('dragOver');
+			}
+
+			function handleDragLeave(e) {
+				//console.log(this);
+				this.classList.remove('dragOver');
+			}
+			
+			elem.on("dragstart", handleDragStart);
+			var dropArea = document.getElementById("dropArea");
+			dropArea.addEventListener("dragenter", handleDragEnter);
+			dropArea.addEventListener("dragleave", handleDragLeave);
 		}
 
 		return {
@@ -41,13 +51,11 @@ angular.module("directives", [])
 			},
 */	
 			template: [
-				"<li class='grid' ng-repeat='note in allNotes'>",
-				"<div class='noteBg' draggable='true' ui-sref='edit({ noteId: {{note._id}} })' ng-click='editDetails(note)'>",
-				"<p>{{note.title}}</p>",
-				"<p>{{note.content}}</p>",
-				"</div>",
-				"</li>"
-				].join('')
+				"<div class='noteBg pointer' draggable='true' ui-sref='edit({ noteId: {{note._id}} })' ng-click='editDetails(note)'>",
+					"<p>{{note.title}}</p>",
+					"<p>{{note.content}}</p>",
+				"</div>"
+			].join('')
 		}
 	})
 

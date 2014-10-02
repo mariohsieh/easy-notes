@@ -75,18 +75,18 @@ header {
 	background-color: rgba(255,0,0,.50);
 }
 
-.deleteArea:hover {
+.deleteArea:hover, .dragOver {
 	background-color: rgb(255,0,0);
 }
 
 .deleteArea:hover::before {
-		content: "drag and drop here to delete note";
-		display: block;
-		position: absolute;
-		z-index: 10;
-		width: 75px;
-		right: 50px;
-		//white-space: nowrap;
+	content: "drag and drop here to delete note";
+	display: block;
+	position: absolute;
+	z-index: 10;
+	width: 75px;
+	right: 50px;
+	//white-space: nowrap;
 }
 
 
