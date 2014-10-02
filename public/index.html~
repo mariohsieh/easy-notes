@@ -14,12 +14,11 @@
 	<header>
 		<h1 class="textCenter">easy notes</h1>	
 	</header>
-	<aside class="sidebar addArea">
-		<button class="pointer" ui-sref="new">add</button>
+	<aside class="sidebar addArea" ui-sref="new">
+		<p>add</p>
 	</aside>
 	<aside class="sidebar deleteArea">
-		<!-- delete note area-->
-		<button class="pointer">delete</button>
+		<p>delete</p>
 	</aside>
 	<main ui-view></main>
 	

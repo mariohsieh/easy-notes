@@ -53,6 +53,11 @@ header {
 	position: fixed;
 	top: 50px;
 	bottom: 0;
+	vertical-align: middle;
+	p {
+		position: inherit;
+		top: 49%;
+	}
 }
 
 .addArea {
@@ -60,9 +65,28 @@ header {
 	background-color: rgba(0,255,0,.50);
 }
 
+.addArea:hover {
+	background-color: rgb(0,255,0);
+	cursor: pointer;
+}
+
 .deleteArea {
 	right: 0;
 	background-color: rgba(255,0,0,.50);
+}
+
+.deleteArea:hover {
+	background-color: rgb(255,0,0);
+}
+
+.deleteArea:hover::before {
+		content: "drag and drop here to delete note";
+		display: block;
+		position: absolute;
+		z-index: 10;
+		width: 75px;
+		right: 50px;
+		//white-space: nowrap;
 }
 
 

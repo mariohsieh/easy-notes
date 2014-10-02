@@ -98,15 +98,34 @@ header {
   width: 50px;
   position: fixed;
   top: 50px;
-  bottom: 0; }
+  bottom: 0;
+  vertical-align: middle; }
+  .sidebar p {
+    position: inherit;
+    top: 49%; }
 
 .addArea {
   left: 0;
   background-color: rgba(0, 255, 0, 0.5); }
 
+.addArea:hover {
+  background-color: lime;
+  cursor: pointer; }
+
 .deleteArea {
   right: 0;
   background-color: rgba(255, 0, 0, 0.5); }
+
+.deleteArea:hover {
+  background-color: red; }
+
+.deleteArea:hover::before {
+  content: "drag and drop here to delete note";
+  display: block;
+  position: absolute;
+  z-index: 10;
+  width: 75px;
+  right: 50px; }
 
 main .noteBg {
   background-color: yellow;

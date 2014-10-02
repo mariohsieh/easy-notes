@@ -1,5 +1,58 @@
 angular.module("directives", [])
 
+	// show note //
+	.directive("showNote", function() {
+		
+		function link(scope, elem, attr) {
+			
+			console.log(elem[0].children);
+			
+			//var note = document.querySelector('.displayNoteArea ul li');
+			var note = elem[0].children;
+			[].forEach.call(note, function(data) {
+				data.addEventListener('dragstart', handleDragStart, false);
+			});
+			function handleDragStart(e) {
+				console.log(this);
+				//this.style.opacity = '0.4';
+			}
+			//console.log(note);
+		}
+
+		return {
+			link: link,
+			//replace: true,
+			restrict: 'A',
+/*			
+			controller: function() {
+
+				//// draggable code ////
+				function handleDragStart(e) {
+					this.style.opacity = '0.4';
+				}
+				
+				var note = document.querySelector('.noteBg');
+				//var note = document.querySelector('.deleteArea p');
+				console.log(note);
+/*				
+				[].forEach.call(note, function(note) {
+					note.addEventListener('dragstart', handleDragStart, false);
+				});
+			},
+*/	
+			template: [
+				"<li class='grid' ng-repeat='note in allNotes'>",
+				"<div class='noteBg' draggable='true' ui-sref='edit({ noteId: {{note._id}} })' ng-click='editDetails(note)'>",
+				"<p>{{note.title}}</p>",
+				"<p>{{note.content}}</p>",
+				"</div>",
+				"</li>"
+				].join('')
+		}
+	})
+
+
+	// add note //
 	.directive("addNote", function() {
 /*
 		function link(scope, elem, attr) {
@@ -38,6 +91,8 @@ angular.module("directives", [])
 		}
 	})
 
+
+	// show note //
 	.directive("editNote", function() {
 		
 		return {
@@ -71,6 +126,8 @@ angular.module("directives", [])
 		}
 	})
 	
+	
+	// note color //
 	.directive("noteColor", function() {
 		return {
 			restrict: 'E',
