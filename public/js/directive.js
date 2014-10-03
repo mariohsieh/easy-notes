@@ -23,33 +23,24 @@ angular.module("directives", [])
 				this.classList.remove('dragOver');
 			}
 			
+			function handleDragEnd(e) {
+				//console.log(this);
+				this.style.opacity = "1.0";
+			}
+
 			elem.on("dragstart", handleDragStart);
+			
+			
 			var dropArea = document.getElementById("dropArea");
-			dropArea.addEventListener("dragenter", handleDragEnter);
-			dropArea.addEventListener("dragleave", handleDragLeave);
+			dropArea.addEventListener("dragenter", handleDragEnter, false);
+			dropArea.addEventListener("dragleave", handleDragLeave, false);
+			elem.on("dragend", handleDragEnd);
+			
 		}
 
 		return {
 			link: link,
-			//replace: true,
 			restrict: 'A',
-/*			
-			controller: function() {
-
-				//// draggable code ////
-				function handleDragStart(e) {
-					this.style.opacity = '0.4';
-				}
-				
-				var note = document.querySelector('.noteBg');
-				//var note = document.querySelector('.deleteArea p');
-				console.log(note);
-/*				
-				[].forEach.call(note, function(note) {
-					note.addEventListener('dragstart', handleDragStart, false);
-				});
-			},
-*/	
 			template: [
 				"<div class='noteBg pointer' draggable='true' ui-sref='edit({ noteId: {{note._id}} })' ng-click='editDetails(note)'>",
 					"<p>{{note.title}}</p>",

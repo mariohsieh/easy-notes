@@ -2,7 +2,8 @@
 	"name" : "easy notes app",
 	"version" : "0.0.1",
 	"dependencies" : {
-		"font-awesome" : "latest",
+		"foundation-icon-fonts" : "latest",
+		"angular-ui-router" : "latest",
 		"angular" : "latest"
 	}
 }

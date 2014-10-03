@@ -3,6 +3,7 @@
 // import css files
 @import "reset.css";
 @import "global";
+@import "../libs/foundation-icon-fonts/foundation-icons";
 
 // variables
 $grey: #424242;
@@ -58,6 +59,9 @@ header {
 		position: inherit;
 		top: 49%;
 	}
+	i {
+		//icon style
+	}
 }
 
 .addArea {
@@ -80,7 +84,7 @@ header {
 }
 
 .deleteArea:hover::before {
-	content: "drag and drop here to delete note";
+	content: "drag note here to delete";
 	display: block;
 	position: absolute;
 	z-index: 10;
