@@ -78,7 +78,7 @@ html, body {
   width: 50px;
   padding: 0; }
 
-.aqua {
+.cyan {
   background-color: #00FFFF; }
 
 .yellow {
@@ -95,6 +95,12 @@ html, body {
 
 .orange {
   background-color: #FF6600; }
+
+.brass {
+  background-color: #B5A642; }
+
+.tan {
+  background-color: #DB9370; }
 
 header {
   background-color: #424242;
@@ -173,7 +179,7 @@ main .noteBg {
 main .displayNoteArea {
   margin: 0 5%; }
   main .displayNoteArea ul .grid {
-    padding: .5%;
+    margin: .5%;
     vertical-align: top; }
 main .newNoteArea > *, main .editNoteArea > * {
   vertical-align: top; }

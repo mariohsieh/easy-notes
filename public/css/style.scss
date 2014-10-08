@@ -27,7 +27,7 @@ html, body {
 }
 
 // note colors
-.aqua
+.cyan
 {
 	background-color: #00FFFF;
 }
@@ -55,6 +55,14 @@ html, body {
 .orange
 {
 	background-color: #FF6600;
+}
+
+.brass {
+	background-color: #B5A642;
+}
+
+.tan {
+	background-color: #DB9370;
 }
 
 
@@ -169,7 +177,7 @@ main {
 			//padding: 0 auto 0 20%;
 			.grid {
 				//float: left;
-				padding: .5%;
+				margin: .5%;
 				vertical-align: top;
 			}
 		}
