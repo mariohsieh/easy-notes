@@ -2,6 +2,7 @@ angular.module("easyNotesApp", [
 	"controllers",
 	"factories",
 	"directives",
+	//"ngAnimate",
 	"ui.router"
 	])
 

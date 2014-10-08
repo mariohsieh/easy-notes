@@ -196,4 +196,5 @@ main .newNoteArea article .overlay, main .editNoteArea article .overlay {
   opacity: 1; }
 
 .ng-enter-stagger {
-  transition-delay: 0.1s; }
+  transition-delay: 0.2s;
+  -webkit-transition-delay: 0.2s; }

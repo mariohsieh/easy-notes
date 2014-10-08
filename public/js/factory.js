@@ -13,14 +13,13 @@ angular.module("factories", [])
 			}
 
 			this.updateNote = function(noteData) {
-				return $http.put('/api/notes/:noteId', noteData);
+				return $http.put('/api/notes/'+noteData._id, noteData);
 			}
 
-/* 
-			this.deleteNote = function() {
-
+			this.deleteNote = function(noteData) {
+				return $http.delete('/api/notes/'+noteData._id);
 			}		
-*/			
+
 		}
 		
 	}]);

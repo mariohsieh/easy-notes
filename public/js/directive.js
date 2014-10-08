@@ -4,9 +4,8 @@ angular.module("directives", [])
 	.directive("showNote", function() {
 		
 		function link(scope, elem, attr) {
-			
-			//console.log(elem);
 
+			// define draggable events
 			function handleDragStart(e) {
 				//console.log(this);
 				this.style.opacity = '0.5';
@@ -23,17 +22,27 @@ angular.module("directives", [])
 				this.classList.remove('dragOver');
 			}
 			
+			function handleDrop(e) {
+				if (e.stopPropagation)
+					e.stopPropagation();
+				return false;
+			}
+			
 			function handleDragEnd(e) {
-				//console.log(this);
+				//console.log(scope.note);
 				this.style.opacity = "1.0";
+				if (dropArea.classList.contains("dragOver"))
+					scope.delNote(scope.note);
 			}
 
-			elem.on("dragstart", handleDragStart);
-			
-			
+
+			// add event listener to element
 			var dropArea = document.getElementById("dropArea");
+			
+			elem.on("dragstart", handleDragStart);
 			dropArea.addEventListener("dragenter", handleDragEnter, false);
 			dropArea.addEventListener("dragleave", handleDragLeave, false);
+			elem.on("drop", handleDrop);
 			elem.on("dragend", handleDragEnd);
 			
 		}
@@ -93,7 +102,7 @@ angular.module("directives", [])
 	})
 
 
-	// show note //
+	// edit note //
 	.directive("editNote", function() {
 		
 		return {

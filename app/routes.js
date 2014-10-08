@@ -76,11 +76,11 @@ module.exports = function(app, Note) {
 	app.route('/api/notes/:noteId')
 		
 		.put(function(req,res,next) {
-			
+			//console.log(req.params.noteId);
 			var reqBody = req.body;
-			console.log(reqBody._id);
+
 			// find document by ID
-			Note.findById(reqBody._id, function(err,doc) {
+			Note.findById(req.params.noteId, function(err,doc) {
 				if (err || !doc) throw err;
 				
 				// update all entries
@@ -99,8 +99,22 @@ module.exports = function(app, Note) {
 						
 				});
 			});
- 
-		});
+		})
+		
+		.delete(function(req,res,next) {
+			//console.log(req.params.noteId);
+
+			Note.remove({ _id: req.params.noteId }, function(err,doc) {
+				if (err || !doc) throw err;
+				else {
+					console.log(doc);
+					res.send("note successfully deleted.");
+				}
+				
+			});
+			
+		});		
+		
 
 }
 
