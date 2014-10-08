@@ -26,6 +26,7 @@ html, body {
 	
 }
 
+// note colors
 .aqua
 {
 	background-color: #00FFFF;
@@ -133,7 +134,7 @@ main {
 	}
 
 	.noteBg {
-		background-color: yellow;
+		//background-color: yellow;			//remove later
 		width: $noteHW;
 		height: $noteHW;
 		padding: 10px;

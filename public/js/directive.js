@@ -64,7 +64,9 @@ angular.module("directives", [])
 			replace: true,
 			controller: function($scope, Note, $location) {
 				var note = new Note;
+				$scope.newNote = {};
 				
+				$scope.newNote.color = "yellow";
 				$scope.addNote = function(data) {
 					$scope.newNote.date = new Date();
 					//console.log($scope.newNote);
@@ -127,12 +129,22 @@ angular.module("directives", [])
 	
 	
 	// note color //
-	.directive("noteColor", function() {
+	.directive("noteColor", function($location) {
 		return {
 			restrict: 'E',
 			replace: true,
 			controller: function($scope) {
 				$scope.colors = ["aqua", "green", "yellow", "orange", "purple", "pink"];
+				
+				$scope.changeColor = function(color) {
+					//console.log($location.path());
+					
+					if ($location.path() == '/new')
+						$scope.newNote.color = color;
+					else
+						$scope.current.color = color;
+					
+				}
 			},
 			templateUrl: 'views/partials/note-color.html'
 		}
