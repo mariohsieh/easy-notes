@@ -3,7 +3,7 @@
 // import css files
 @import "reset.css";
 @import "global";
-@import "../libs/foundation-icon-fonts/foundation-icons";
+//@import "../libs/foundation-icon-fonts/foundation-icons";
 
 // variables
 $grey: #424242;
@@ -26,19 +26,38 @@ html, body {
 	
 }
 
-.red {
-	background-color: red;
+.aqua
+{
+	background-color: #00FFFF;
 }
 
-.green {
-	background-color: green;
+.yellow
+{
+	background-color: #FFFF00;
 }
 
-.blue {
-	background-color: blue;
+.green
+{
+	background-color: #99FF66;
 }
 
-//// header styles ////
+.pink
+{
+	background-color: #CC6699;
+}
+
+.purple
+{
+	background-color: #FF0099;
+}
+
+.orange
+{
+	background-color: #FF6600;
+}
+
+
+//// main header styles ////
 header {
 	background-color: $grey;
 	height: 50px;
@@ -52,21 +71,27 @@ header {
 .sidebar {
 	width: 50px;
 	position: fixed;
-	top: 50px;
+	top: 0;
 	bottom: 0;
-	vertical-align: middle;
-	p {
-		position: inherit;
-		top: 49%;
-	}
 	i {
-		//icon style
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		font-size: 50px;
 	}
+}
+
+.sidebar:hover {
+	color: #fff;
 }
 
 .addArea {
 	left: 0;
 	background-color: rgba(0,255,0,.50);
+	i {
+		margin-left: 7px;
+	}
 }
 
 .addArea:hover {
@@ -77,6 +102,9 @@ header {
 .deleteArea {
 	right: 0;
 	background-color: rgba(255,0,0,.50);
+	i {
+		margin-left: 9px;
+	}	
 }
 
 .deleteArea:hover, .dragOver {
@@ -90,12 +118,19 @@ header {
 	z-index: 10;
 	width: 75px;
 	right: 50px;
+	color: #000;
 	//white-space: nowrap;
 }
 
 
 //// main content styles ////
 main {
+
+	> h1 {
+		height: 50px;
+		line-height: 50px;
+		//width: 100%;	
+	}
 
 	.noteBg {
 		background-color: yellow;
@@ -127,15 +162,15 @@ main {
 	}
 
 	.displayNoteArea	{
-		padding: 0 5%;
+		margin: 0 5%;
 		ul {
 			//width: 90%;
-		}
-		.grid {
-			display: inline-block;
-			//float: left;
-			padding: .5%;
-			vertical-align: top;
+			//padding: 0 auto 0 20%;
+			.grid {
+				//float: left;
+				padding: .5%;
+				vertical-align: top;
+			}
 		}
 	}
 	
@@ -144,12 +179,12 @@ main {
 			vertical-align: top;
 		}
 		article {
-			div, button, h3, ul {
+			div, button, h2, ul {
 				position: relative; //has to be relative to display properly
 				z-index: 100;
 			}
 			
-			h3 {
+			h2 {
 				color: #fff;
 			}
 			.overlay {
@@ -178,3 +213,33 @@ main {
 @media screen and (min-width: 1601px) {
 
 }
+
+
+//////////////////////////////
+//  				animation 			//
+//////////////////////////////
+
+.ng-enter {
+	opacity: 0;
+	transition: all 0.5s ease-in;
+	-moz-transition: all 0.5s ease-in;
+	-o-transition: all 0.5s ease-in;
+	-webkit-transition: all 0.5s ease-in;
+}
+
+.ng-enter-active {
+	opacity: 1;
+}
+
+.ng-enter-stagger {
+	transition-delay: 0.1s;
+}
+
+
+
+
+
+
+
+
+

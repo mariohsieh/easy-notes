@@ -132,7 +132,7 @@ angular.module("directives", [])
 			restrict: 'E',
 			replace: true,
 			controller: function($scope) {
-				$scope.colors = ["green", "blue", "red"];
+				$scope.colors = ["aqua", "green", "yellow", "orange", "purple", "pink"];
 			},
 			templateUrl: 'views/partials/note-color.html'
 		}
