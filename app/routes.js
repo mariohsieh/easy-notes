@@ -9,7 +9,7 @@ module.exports = function(app, Note) {
 			if (num < 10)
 				return "0" + num;
 			else
-				return num;
+				return num.toString();
 		}
 		
 		var mm = addZero(today.getMonth()+1);
@@ -18,24 +18,11 @@ module.exports = function(app, Note) {
 		var min = addZero(today.getMinutes());	
 		var ss = addZero(today.getSeconds());	
 
-		//var todayDate = today.getFullYear() + "-" + mm + "-" + dd + "-" + hh + min + ss;
-		var todayDate = today.getFullYear() + mm + dd + hh + min + ss;
-		
+		var todayDate = today.getFullYear().toString() + mm + dd + hh + min + ss;
+				
 		return todayDate;
 	}	
-/*
-	// set up object for submission
-	function setNoteObj(data) {
-		var noteObj = {
-			_id: 			id,
-			title: 		reqBody.title,
-			content: 	reqBody.content,
-			date: 		reqBody.date
-		}
-		var note = new Note(noteObj);
-		return note;
-	}
-*/ 
+
 
 	//// routes definition ******************************
 	app.route('/')
@@ -65,10 +52,11 @@ module.exports = function(app, Note) {
 
 			// set up object for submission
 			var noteObj = {
-				_id: 			id,
-				title: 		reqBody.title,
-				content: 	reqBody.content,
-				date: 		reqBody.date
+				_id: 				id,
+				title: 			reqBody.title,
+				content: 		reqBody.content,
+				color: 			reqBody.color,
+				created: 		reqBody.date
 			}
 			var note = new Note(noteObj);
 		
@@ -94,10 +82,13 @@ module.exports = function(app, Note) {
 			// find document by ID
 			Note.findById(reqBody._id, function(err,doc) {
 				if (err || !doc) throw err;
+				
 				// update all entries
-				doc.title = reqBody.title,
-				doc.content = reqBody.content,
-				doc.date = reqBody.date,
+				doc.title = reqBody.title;
+				doc.content = reqBody.content;
+				doc.color = reqBody.color;
+				doc.updated = reqBody.date;
+				
 				// save into db
 				doc.save(function(err,doc) {
 					if (err || !doc) throw err;

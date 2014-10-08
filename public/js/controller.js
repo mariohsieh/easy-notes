@@ -25,6 +25,7 @@ angular.module("controllers", [])
 			// create copy for placholder text
 			$scope.current.pTitle = note.title;
 			$scope.current.pContent = note.content;
+			$scope.current.pColor = note.color;
 		}
 		
 		// run on page load

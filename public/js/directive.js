@@ -42,7 +42,7 @@ angular.module("directives", [])
 			link: link,
 			restrict: 'A',
 			template: [
-				"<div class='noteBg pointer' draggable='true' ui-sref='edit({ noteId: {{note._id}} })' ng-click='editDetails(note)'>",
+				"<div class='noteBg pointer {{note.color}}' draggable='true' ui-sref='edit({ noteId: {{note._id}} })' ng-click='editDetails(note)'>",
 					"<p>{{note.title}}</p>",
 					"<p>{{note.content}}</p>",
 				"</div>"
@@ -120,6 +120,7 @@ angular.module("directives", [])
 				$scope.cancelEdit = function() {
 					$scope.current.title = $scope.current.pTitle;
 					$scope.current.content = $scope.current.pContent;
+					$scope.current.color = $scope.current.pColor;
 				}
 					
 			},
