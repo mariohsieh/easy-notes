@@ -2,6 +2,19 @@
 //a list of global CSS definitions
 //**********************************
 
+// default parameters for entire document
+html {
+	font-family: 'Ubuntu Mono', monospace;
+	//font-size: 100%;
+	box-sizing: border-box;
+	*, *:before, *:after {
+		font-family: inherit;
+		//font-size: inherit;
+		box-sizing: inherit;
+	}
+}
+
+
 // tag selectors //
 h1 {
 	font-size: 2em;
@@ -22,9 +35,19 @@ h6 {
 	font-size: .75em;
 }
 
-// class selectors //
+
+// class styles //
 .center {
 	margin: 0 auto;
+}
+
+.absoluteCenter {
+	margin: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 }
 
 .textLeft {
@@ -47,7 +70,11 @@ h6 {
 	float: right;
 }
 
-.clearFix {
+.clearfix:after {
+	content: ".";
+	visibility: hidden;
+	display: block;
+	height: 0;
 	clear: both;
 }
 
@@ -63,14 +90,6 @@ h6 {
 	display: inline-block;
 }
 
-.clearfix:after {
-	content: ".";
-	visibility: hidden;
-	display: block;
-	height: 0;
-	clear: both;
-}
-
 .overlay {
 	position: fixed;
 	display: block;
@@ -81,6 +100,7 @@ h6 {
 	background-color: rgba(0,0,0,.85);
 }
 
+
 //// mixins ////
 @mixin borderRadius($radius) {
 	-moz-border-radius: $radius;
@@ -89,5 +109,6 @@ h6 {
 	-webkit-border-radius: $radius;
 	border-radius: $radius;
 }
+
 
 // placeholder selectors //

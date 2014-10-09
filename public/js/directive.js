@@ -144,7 +144,7 @@ angular.module("directives", [])
 			restrict: 'E',
 			replace: true,
 			controller: function($scope) {
-				$scope.colors = ["cyan", "green", "yellow", "orange", "purple", "pink", "tan", "brass"];
+				$scope.colors = ["cyan", "green", "yellow", "orange", "purple", "pink", "tan", "quartz"];
 				
 				$scope.changeColor = function(color) {
 					//console.log($location.path());

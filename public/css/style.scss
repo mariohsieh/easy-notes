@@ -7,7 +7,7 @@
 
 // variables
 $grey: #424242;
-$noteHW: 230px;
+$noteHW: 250px;
 
 //// tag selectors ////
 html, body {
@@ -57,12 +57,12 @@ html, body {
 	background-color: #FF6600;
 }
 
-.brass {
-	background-color: #B5A642;
+.quartz {
+	background-color: #D9D9F3;
 }
 
 .tan {
-	background-color: #DB9370;
+	background-color: #E8C2A6;
 }
 
 
@@ -142,7 +142,6 @@ main {
 	}
 
 	.noteBg {
-		//background-color: yellow;			//remove later
 		width: $noteHW;
 		height: $noteHW;
 		padding: 10px;
@@ -184,21 +183,39 @@ main {
 	}
 	
 	.newNoteArea, .editNoteArea {
+		@extend .absoluteCenter;
+		width: 520px;
+		height: 320px;
+		
 		> * {
 			vertical-align: top;
+			margin: 0 5px 0;
 		}
 		article {
 			div, button, h2, ul {
 				position: relative; //has to be relative to display properly
 				z-index: 100;
 			}
-			
+			ul {
+				width: 120px;
+				li {
+					height: 50px;
+					margin: 2px;
+				}
+			}
 			h2 {
 				color: #fff;
+			}
+			button {
+				margin: 5px auto;
 			}
 			.overlay {
 				z-index: 90;
 			}
+		}
+		article:last-of-type {
+			width: 120px;
+			height: 240px;
 		}
 	}
 }

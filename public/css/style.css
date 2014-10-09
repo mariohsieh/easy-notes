@@ -1,4 +1,11 @@
 @import url(reset.css);
+html {
+  font-family: 'Ubuntu Mono', monospace;
+  box-sizing: border-box; }
+  html *, html *:before, html *:after {
+    font-family: inherit;
+    box-sizing: inherit; }
+
 h1 {
   font-size: 2em; }
 
@@ -20,6 +27,14 @@ h6 {
 .center {
   margin: 0 auto; }
 
+.absoluteCenter, main .newNoteArea, main .editNoteArea {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
 .textLeft {
   text-align: left; }
 
@@ -35,7 +50,11 @@ h6 {
 .floatRight {
   float: right; }
 
-.clearFix {
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
   clear: both; }
 
 .pointer {
@@ -46,13 +65,6 @@ h6 {
 
 .inlineBlock {
   display: inline-block; }
-
-.clearfix:after {
-  content: ".";
-  visibility: hidden;
-  display: block;
-  height: 0;
-  clear: both; }
 
 .overlay {
   position: fixed;
@@ -96,11 +108,11 @@ html, body {
 .orange {
   background-color: #FF6600; }
 
-.brass {
-  background-color: #B5A642; }
+.quartz {
+  background-color: #D9D9F3; }
 
 .tan {
-  background-color: #DB9370; }
+  background-color: #E8C2A6; }
 
 header {
   background-color: #424242;
@@ -156,8 +168,8 @@ main > h1 {
   height: 50px;
   line-height: 50px; }
 main .noteBg {
-  width: 230px;
-  height: 230px;
+  width: 250px;
+  height: 250px;
   padding: 10px; }
   main .noteBg input, main .noteBg textarea, main .noteBg p {
     width: 95%;
@@ -181,15 +193,29 @@ main .displayNoteArea {
   main .displayNoteArea ul .grid {
     margin: .5%;
     vertical-align: top; }
-main .newNoteArea > *, main .editNoteArea > * {
-  vertical-align: top; }
-main .newNoteArea article div, main .newNoteArea article button, main .newNoteArea article h2, main .newNoteArea article ul, main .editNoteArea article div, main .editNoteArea article button, main .editNoteArea article h2, main .editNoteArea article ul {
-  position: relative;
-  z-index: 100; }
-main .newNoteArea article h2, main .editNoteArea article h2 {
-  color: #fff; }
-main .newNoteArea article .overlay, main .editNoteArea article .overlay {
-  z-index: 90; }
+main .newNoteArea, main .editNoteArea {
+  width: 520px;
+  height: 320px; }
+  main .newNoteArea > *, main .editNoteArea > * {
+    vertical-align: top;
+    margin: 0 5px 0; }
+  main .newNoteArea article div, main .newNoteArea article button, main .newNoteArea article h2, main .newNoteArea article ul, main .editNoteArea article div, main .editNoteArea article button, main .editNoteArea article h2, main .editNoteArea article ul {
+    position: relative;
+    z-index: 100; }
+  main .newNoteArea article ul, main .editNoteArea article ul {
+    width: 120px; }
+    main .newNoteArea article ul li, main .editNoteArea article ul li {
+      height: 50px;
+      margin: 2px; }
+  main .newNoteArea article h2, main .editNoteArea article h2 {
+    color: #fff; }
+  main .newNoteArea article button, main .editNoteArea article button {
+    margin: 5px auto; }
+  main .newNoteArea article .overlay, main .editNoteArea article .overlay {
+    z-index: 90; }
+  main .newNoteArea article:last-of-type, main .editNoteArea article:last-of-type {
+    width: 120px;
+    height: 240px; }
 
 .ng-enter {
   opacity: 0;
