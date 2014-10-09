@@ -172,7 +172,6 @@ main .noteBg {
   height: 250px;
   padding: 10px; }
   main .noteBg input, main .noteBg textarea, main .noteBg p {
-    width: 95%;
     padding: 5px 2.5%;
     font: inherit;
     border: none;
@@ -183,11 +182,13 @@ main .noteBg {
   main .noteBg textarea {
     margin-top: 10px;
     resize: none; }
-  main .noteBg p:last-of-type {
-    text-align: left;
+  main .noteBg p.content {
     height: 170px;
     white-space: pre-wrap;
     overflow: hidden; }
+  main .noteBg p.date {
+    font-size: .9em;
+    font-style: italic; }
 main .displayNoteArea {
   margin: 0 5%; }
   main .displayNoteArea ul .grid {

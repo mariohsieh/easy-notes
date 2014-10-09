@@ -45,6 +45,46 @@ angular.module("directives", [])
 			elem.on("drop", handleDrop);
 			elem.on("dragend", handleDragEnd);
 			
+			// format created/updated date for display
+			function formatDate(obj) {
+				if (obj.updated)
+					var showDate = new Date(obj.updated);	
+				else	
+					var showDate = new Date(obj.created);	
+				
+				function addZero(num) {
+					if (num < 10)
+						return "0" + num;
+					else
+						return num.toString();
+				}
+
+				var yy = showDate.getFullYear().toString();
+				var mm = addZero(showDate.getMonth()+1);
+				var dd = addZero(showDate.getDate());
+				var hh = addZero(showDate.getHours());
+				var min = addZero(showDate.getMinutes());	
+				var ss = addZero(showDate.getSeconds());
+
+				showDate = yy + "/" + mm + "/" + dd + " at " + hh + ":" + mm;
+				//console.log(yy, mm, dd, hh, min);
+				
+				if (obj.updated)
+					showDate = "Updated on " + showDate;
+				else
+					showDate = "Created on " + showDate;
+					
+				return showDate;
+			}
+			
+			scope.timeDisplay = formatDate(scope.note);
+/*			
+			if (scope.note.updated)
+				//console.log("updated at " + scope.note.updated);
+				scope.timeDisplay = "updated on " + formatDate(scope.note);
+			else
+				scope.timeDisplay = "created on " + formatDate(scope.note);
+*/ 
 		}
 
 		return {
@@ -53,7 +93,8 @@ angular.module("directives", [])
 			template: [
 				"<div class='noteBg pointer {{note.color}}' draggable='true' ui-sref='edit({ noteId: {{note._id}} })' ng-click='editDetails(note)'>",
 					"<p>{{note.title}}</p>",
-					"<p>{{note.content}}</p>",
+					"<p class='content textLeft'>{{note.content}}</p>",
+					"<p class='date textRight'>{{timeDisplay}}</p>",
 				"</div>"
 			].join('')
 		}
