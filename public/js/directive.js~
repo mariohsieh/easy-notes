@@ -47,21 +47,17 @@ angular.module("directives", [])
 			
 			// format created/updated date for display
 			function formatDate(obj) {
-		
+				if (obj.updated)
+					var showDate = new Date(obj.updated);	
+				else	
+					var showDate = new Date(obj.created);	
+				
 				function addZero(num) {
 					if (num < 10)
 						return "0" + num;
 					else
 						return num.toString();
 				}
-
-				if (obj.updated) {
-					var showDate = new Date(obj.updated);
-					var editStatus = "Updated on ";
-				} else	{
-					var showDate = new Date(obj.created);
-					var editStatus = "Created on ";
-				}	
 
 				var yy = showDate.getFullYear().toString();
 				var mm = addZero(showDate.getMonth()+1);
@@ -72,9 +68,12 @@ angular.module("directives", [])
 
 				showDate = yy + "/" + mm + "/" + dd + " at " + hh + ":" + mins;
 				//console.log(yy, mm, dd, hh, min);
-
-				showDate = editStatus + showDate;
 				
+				if (obj.updated)
+					showDate = "Updated on " + showDate;
+				else
+					showDate = "Created on " + showDate;
+					
 				return showDate;
 			}
 			
@@ -150,11 +149,9 @@ angular.module("directives", [])
 		return {
 			restrict: 'E',
 			replace: true,
-/*					
 			scope: {
 				current: '='
 			},
-*/ 
 			controller: function($scope, Note, $location) {
 				var note = new Note;
 				
@@ -167,7 +164,7 @@ angular.module("directives", [])
 						.then(function(data) {
 							console.log(data);
 							$location.path("/");
-							$scope.initial();
+							$scope.initial();	
 						});
 				}
 				// reset title and content if cancel out

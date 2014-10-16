@@ -127,10 +127,11 @@ header {
   top: 0;
   bottom: 0; }
   .sidebar i {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
+    position: inherit;
+    margin: auto inherit;
+    top: 0;
+    bottom: 26px;
+    height: 52px;
     font-size: 50px; }
 
 .sidebar:hover {
@@ -182,6 +183,8 @@ main .noteBg {
   main .noteBg textarea {
     margin-top: 10px;
     resize: none; }
+  main .noteBg p.title {
+    height: 26px; }
   main .noteBg p.content {
     height: 170px;
     white-space: pre-wrap;

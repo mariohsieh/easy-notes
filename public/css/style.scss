@@ -83,10 +83,13 @@ header {
 	top: 0;
 	bottom: 0;
 	i {
-		position: relative;
-		top: 50%;
-		transform: translateY(-50%);
-		-webkit-transform: translateY(-50%);
+		position: inherit;
+		margin: auto inherit;
+		top: 0;
+		bottom: 26px; 
+		height: 52px;
+		//transform: translateY(-50%);
+		//-webkit-transform: translateY(-50%);
 		font-size: 50px;
 	}
 }
@@ -160,6 +163,9 @@ main {
 			margin-top: 10px;
 			//height: 182px;
 			resize: none;
+		}
+		p.title {
+			height: 26px;
 		}
 		p.content {
 			height: 170px;
