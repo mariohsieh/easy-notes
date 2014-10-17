@@ -1,6 +1,6 @@
 angular.module("directives", [])
 
-	// show note //
+	//// show note ////
 	.directive("showNote", function() {
 		
 		function link(scope, elem, attr) {
@@ -52,7 +52,7 @@ angular.module("directives", [])
 					if (num < 10)
 						return "0" + num;
 					else
-						return num.toString();
+						return num;
 				}
 
 				if (obj.updated) {
@@ -70,7 +70,18 @@ angular.module("directives", [])
 				var mins = addZero(showDate.getMinutes());	
 				var ss = addZero(showDate.getSeconds());
 
-				showDate = yy + "/" + mm + "/" + dd + " at " + hh + ":" + mins;
+				// change to 12-hour clock and add am/pm
+				var ampm = "am";
+				if (hh == "00")
+					hh = 12;
+				if (hh = 12)
+					ampm = "pm";
+				if (hh > 12) {
+					ampm = "pm";
+					hh -= 12;
+				}
+
+				showDate = yy + "/" + mm + "/" + dd + " at " + hh + ":" + mins + ampm;
 				//console.log(yy, mm, dd, hh, min);
 
 				showDate = editStatus + showDate;
@@ -79,13 +90,7 @@ angular.module("directives", [])
 			}
 			
 			scope.timeDisplay = formatDate(scope.note);
-/*			
-			if (scope.note.updated)
-				//console.log("updated at " + scope.note.updated);
-				scope.timeDisplay = "updated on " + formatDate(scope.note);
-			else
-				scope.timeDisplay = "created on " + formatDate(scope.note);
-*/ 
+			
 		}
 
 		return {
@@ -102,7 +107,7 @@ angular.module("directives", [])
 	})
 
 
-	// add note //
+	//// add note ////
 	.directive("addNote", function() {
 /*
 		function link(scope, elem, attr) {
@@ -144,7 +149,7 @@ angular.module("directives", [])
 	})
 
 
-	// edit note //
+	//// edit note ////
 	.directive("editNote", function() {
 		
 		return {
@@ -183,7 +188,7 @@ angular.module("directives", [])
 	})
 	
 	
-	// note color //
+	//// note color ////
 	.directive("noteColor", function($location) {
 		return {
 			restrict: 'E',
@@ -204,9 +209,3 @@ angular.module("directives", [])
 			templateUrl: 'views/partials/note-color.html'
 		}
 	});
-	
-/*	
-	.directive("editContent", function() {
-	});
-*/	
-	
