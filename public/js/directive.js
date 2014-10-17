@@ -74,7 +74,7 @@ angular.module("directives", [])
 				var ampm = "am";
 				if (hh == "00")
 					hh = 12;
-				if (hh = 12)
+				if (hh == 12)
 					ampm = "pm";
 				if (hh > 12) {
 					ampm = "pm";
